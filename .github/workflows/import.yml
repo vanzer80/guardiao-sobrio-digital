@@ -1,0 +1,42 @@
+name: Import code from guardiao-sobrio-digital
+
+on:
+  workflow_dispatch:
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout destination repo
+        uses: actions/checkout@v4
+        with:
+          path: dest
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clone source repo
+        run: |
+          git clone --depth=1 https://github.com/1980549/guardiao-sobrio-digital.git source
+
+      - name: Copy source files to destination
+        run: |
+          cd source
+          # Remove git history and lovable-specific files
+          rm -rf .git .lovable
+          # Copy everything to dest
+          cp -r . ../dest/
+          cd ../dest
+          # Remove the import workflow itself to avoid confusion later
+          rm -f .github/workflows/import.yml
+
+      - name: Commit and push
+        run: |
+          cd dest
+          git config user.name "vanzer80"
+          git config user.email "vanzer80@users.noreply.github.com"
+          git add -A
+          git status
+          git diff --cached --stat
+          git commit -m "chore: migrate full codebase from 1980549/guardiao-sobrio-digital" || echo "Nothing to commit"
+          git push origin main
