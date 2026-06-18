@@ -10,15 +10,15 @@ const pathCards = [
     id: "parando",
     label: "01",
     title: "Estou parando agora",
-    description: "Primeiras 72h, vontade intensa, abstinência física. Preciso de protocolo imediato.",
+    description: "Primeiras 72h. Vontade intensa, abstinência física. Existe um protocolo para cada hora desse período.",
     href: "/trilhas/recuperacao",
     icon: Shield,
   },
   {
     id: "vontade",
     label: "02",
-    title: "Tenho vontade agora",
-    description: "A vontade chegou. Não é fraqueza — é uma onda. Há um protocolo para isso.",
+    title: "A fissura chegou agora",
+    description: "Não é fraqueza. É uma onda com duração previsível. O protocolo existe exatamente para esse momento.",
     href: "/trilhas/vontade-hoje",
     icon: Zap,
   },
@@ -26,7 +26,7 @@ const pathCards = [
     id: "familia",
     label: "03",
     title: "Protejo alguém em casa",
-    description: "Você não é o problema. Mas pode ser parte da solução. Comece por aqui.",
+    description: "Família precisa de estratégia própria. Não de culpa, não de espera. De estrutura.",
     href: "/trilhas/familiar",
     icon: Lock,
   },
@@ -35,15 +35,15 @@ const pathCards = [
 const pillars = [
   {
     word: "Espelho",
-    description: "Ver a realidade sem filtro. O primeiro passo é aceitar o que está acontecendo de verdade.",
+    description: "Ver o que está acontecendo de verdade, sem filtro. O diagnóstico honesto é o único ponto de partida válido.",
   },
   {
     word: "Tática",
-    description: "Protocolos práticos para atravessar os momentos críticos sem negociar com o vício.",
+    description: "Protocolo antes de decisão. Quando o momento crítico chega, você não improvisa — executa.",
   },
   {
     word: "Escudo",
-    description: "Construir um perímetro de proteção emocional e ambiental para os próximos dias.",
+    description: "Construir um perímetro que aguente a pressão. Ambiental, relacional, emocional.",
   },
 ];
 
@@ -68,41 +68,57 @@ const Index = () => {
             </div>
 
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-foreground mb-6">
-              A verdade difícil{" "}
-              <em className="text-primary not-italic">que devolve</em>{" "}
-              a sua vida.
+              Você não precisa ser forte.{" "}
+              <em className="text-primary not-italic">Precisa de estrutura.</em>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-4 leading-relaxed">
-              Estratégia prática para atravessar a vontade de beber,
-              proteger a casa e construir sobriedade sem teatro.
+              O Guardião Sóbrio é um protocolo operacional.
+              Não é motivação. Não é terapia.
+              É o que você faz quando a fissura bate às 2 da manhã
+              e não tem ninguém para ligar.
             </p>
 
-            <p className="text-sm text-muted-foreground/70 max-w-lg mb-10">
-              Para quem está parando de beber, para quem atravessa uma vontade hoje
-              e para quem protege alguém em casa.
-            </p>
-
-            <p className="text-xs text-muted-foreground/50 max-w-md mb-10 border-l border-border pl-3">
+            <p className="text-xs text-muted-foreground/50 max-w-md mb-10 border-l-2 border-border pl-3">
               Este conteúdo não substitui psiquiatras, psicólogos ou médicos.
               Em emergência médica, ligue 192 (SAMU).
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Link to="/comece-aqui" className="tactical-button flex items-center justify-center gap-2">
-                Comece por aqui
+                Iniciar Protocolo
                 <ArrowRight size={16} />
               </Link>
               <Link to="/protocolos" className="tactical-button-outline flex items-center justify-center gap-2">
-                Ver protocolos
+                Ver os Protocolos
               </Link>
             </div>
 
           </div>
         </div>
 
-        <div className="absolute right-0 bottom-0 opacity-[0.04] pointer-events-none select-none hidden lg:block">
+        <div className="absolute right-0 bottom-0 opacity-[0.03] pointer-events-none select-none hidden lg:block">
           <ShieldIcon size="xl" showLetters={false} />
+        </div>
+      </section>
+
+      {/* ── ÂNCORAS TÁTICAS ───────────────────────────────── */}
+      <section className="py-12 border-y border-border">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+            <p className="text-sm text-muted-foreground font-mono tracking-wide">
+              <span className="text-primary font-semibold block text-base mb-1">A fissura não pede licença.</span>
+              O protocolo também não.
+            </p>
+            <p className="text-sm text-muted-foreground font-mono tracking-wide">
+              <span className="text-primary font-semibold block text-base mb-1">72 horas.</span>
+              Esse é o período mais difícil. Temos um mapa para cada hora.
+            </p>
+            <p className="text-sm text-muted-foreground font-mono tracking-wide">
+              <span className="text-primary font-semibold block text-base mb-1">Guardiões não prometem cura.</span>
+              Entregam estrutura.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -116,10 +132,10 @@ const Index = () => {
               <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Ponto de entrada</span>
             </div>
             <h2 className="font-display text-3xl md:text-4xl text-foreground">
-              Qual é a sua situação agora?
+              Onde você está agora?
             </h2>
             <p className="text-muted-foreground mt-3 max-w-xl">
-              Cada caminho tem um protocolo. Escolha o que descreve o seu momento.
+              Sem diagnóstico. Sem formulário. Escolha o que descreve o seu momento.
             </p>
           </div>
 
@@ -128,7 +144,7 @@ const Index = () => {
               <Link
                 key={card.id}
                 to={card.href}
-                className="tactical-card group block p-6 hover:border-primary/40 transition-all duration-300"
+                className="tactical-card group block"
               >
                 <div className="flex items-start justify-between mb-6">
                   <span className="font-mono text-xs text-primary/60">{card.label}</span>
@@ -143,8 +159,8 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   {card.description}
                 </p>
-                <div className="flex items-center gap-1 text-xs text-primary font-medium">
-                  Acessar
+                <div className="flex items-center gap-1 text-xs text-primary font-medium uppercase tracking-widest">
+                  Acessar protocolo
                   <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -189,12 +205,13 @@ const Index = () => {
               <div className="h-px w-8 bg-primary" />
               <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Quem fala</span>
             </div>
-            <blockquote className="font-display text-2xl md:text-3xl text-foreground leading-snug mb-8">
-              &ldquo;Sobriedade não é uma conquista.
-              É uma identidade que você escolhe todo dia.&rdquo;
+            <blockquote className="font-display text-2xl md:text-3xl text-foreground leading-snug mb-8 tactical-border">
+              &ldquo;Isso não veio de um manual.
+              Veio de dentro, com estrutura, com honestidade
+              e sem performance.&rdquo;
             </blockquote>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+              <div className="w-10 h-10 border border-primary/20 flex items-center justify-center bg-primary/5">
                 <ShieldIcon size="sm" showLetters={false} />
               </div>
               <div>
@@ -218,15 +235,15 @@ const Index = () => {
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-px w-8 bg-primary" />
-                  <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Artigos</span>
+                  <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Despachos do campo</span>
                 </div>
                 <h2 className="font-display text-3xl md:text-4xl text-foreground">
-                  Estratégia sem promessas vazias
+                  Texto direto. Sem promessas vazias.
                 </h2>
               </div>
               <Link
                 to="/blog"
-                className="hidden md:flex items-center gap-2 text-sm text-primary hover:underline"
+                className="hidden md:flex items-center gap-2 text-sm text-primary hover:underline uppercase tracking-widest text-xs"
               >
                 Ver todos <ArrowRight size={14} />
               </Link>
@@ -237,7 +254,7 @@ const Index = () => {
                 <Link
                   key={post.id}
                   to={`/blog/${post.slug}`}
-                  className="tactical-card group block p-6 hover:border-primary/40 transition-all duration-300"
+                  className="tactical-card group block"
                 >
                   <div className="section-divider mb-5" />
                   <span className="text-xs font-mono text-muted-foreground/50 mb-3 block">
@@ -249,8 +266,8 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground line-clamp-2 mb-6">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center gap-1 text-xs text-primary">
-                    Ler artigo <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                  <div className="flex items-center gap-1 text-xs text-primary uppercase tracking-widest">
+                    Ler despacho <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>
               ))}
@@ -258,7 +275,7 @@ const Index = () => {
 
             <div className="mt-8 md:hidden">
               <Link to="/blog" className="tactical-button-outline w-full flex items-center justify-center gap-2">
-                Ver todos os artigos <ArrowRight size={14} />
+                Ver todos os despachos <ArrowRight size={14} />
               </Link>
             </div>
 
@@ -277,11 +294,11 @@ const Index = () => {
             Um protocolo por semana. Direto na sua caixa.
           </h2>
           <p className="text-muted-foreground mb-8">
-            Sem spam. Sem teatro. Sem motivação vazia.<br />
+            Sem spam. Sem teatro.<br />
             Uma missão tática por semana para quem está construindo sobriedade no mundo real.
           </p>
           <NewsletterCapture
-            ctaLabel="Quero receber"
+            ctaLabel="Receber o Protocolo"
             trust="Sem cobrança. Você sai quando quiser."
             successMessage="Você está dentro. Primeiro protocolo chega em até 7 dias."
             tag="newsletter-home"
