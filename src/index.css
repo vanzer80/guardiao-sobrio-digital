@@ -2,86 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    /* Noir Realista - Guardião Sóbrio (carvão quente) */
-    --background: 30 8% 5%;        /* #0e0d0c */
-    --foreground: 40 15% 92%;
+    /* Teal Profundo — Guardião Sóbrio */
+    --background: 168 45% 4%;         /* #050f0e */
+    --foreground: 40 20% 90%;          /* off-white quente */
 
-    --card: 30 6% 8%;              /* surface alt */
-    --card-foreground: 40 15% 92%;
+    --card: 168 40% 7%;                /* surface teal escuro */
+    --card-foreground: 40 20% 90%;
 
-    --popover: 30 6% 8%;
-    --popover-foreground: 40 15% 92%;
+    --popover: 168 40% 7%;
+    --popover-foreground: 40 20% 90%;
 
-    --primary: 44 53% 54%;         /* #c8a84b ouro fosco */
-    --primary-foreground: 30 8% 5%;
+    --primary: 44 70% 52%;             /* dourado #c8a03a */
+    --primary-foreground: 168 45% 4%;
 
-    --secondary: 40 6% 10%;        /* #1a1917 surface */
-    --secondary-foreground: 40 15% 92%;
+    --secondary: 168 35% 10%;          /* teal médio */
+    --secondary-foreground: 40 20% 90%;
 
-    --muted: 40 6% 10%;
-    --muted-foreground: 40 8% 62%;
+    --muted: 168 35% 10%;
+    --muted-foreground: 168 15% 55%;
 
-    --accent: 44 53% 54%;
-    --accent-foreground: 30 8% 5%;
+    --accent: 44 70% 52%;
+    --accent-foreground: 168 45% 4%;
 
-    --destructive: 27 75% 52%;     /* #e07b2a âmbar SOS */
-    --destructive-foreground: 30 8% 5%;
+    --destructive: 27 80% 52%;
+    --destructive-foreground: 168 45% 4%;
 
-    --border: 0 0% 100%;           /* used with /8 opacity via tokens below */
-    --input: 40 6% 14%;
-    --ring: 44 53% 54%;
+    --border: 168 30% 18%;
+    --input: 168 35% 12%;
+    --ring: 44 70% 52%;
 
-    --radius: 0.5rem;
+    --radius: 0.375rem;
 
-    /* Custom Guardião Sóbrio tokens */
-    --gs-bunker: 30 8% 5%;
-    --gs-bunker-light: 30 6% 8%;
-    --gs-tactical: 44 53% 54%;
-    --gs-tactical-hover: 44 53% 60%;
-    --gs-alert: 27 75% 52%;
-    --gs-steel: 40 8% 62%;
-    --gs-light: 40 15% 92%;
-    --gs-shield-opacity: 0.03;
-
-    --sidebar-background: 30 8% 5%;
-    --sidebar-foreground: 40 15% 92%;
-    --sidebar-primary: 44 53% 54%;
-    --sidebar-primary-foreground: 30 8% 5%;
-    --sidebar-accent: 40 6% 10%;
-    --sidebar-accent-foreground: 40 15% 92%;
-    --sidebar-border: 0 0% 100%;
-    --sidebar-ring: 44 53% 54%;
+    /* Custom tokens */
+    --gs-bunker: 168 45% 4%;
+    --gs-bunker-light: 168 40% 7%;
+    --gs-teal: 168 50% 18%;            /* teal accent #0D3D3A */
+    --gs-teal-bright: 172 60% 35%;     /* teal hover */
+    --gs-gold: 44 70% 52%;
+    --gs-gold-hover: 44 70% 62%;
+    --gs-alert: 27 80% 52%;
+    --gs-steel: 168 15% 55%;
+    --gs-light: 40 20% 90%;
+    --gs-shield-opacity: 0.025;
   }
 
   .dark {
-    --background: 30 8% 5%;
-    --foreground: 40 15% 92%;
-    --card: 30 6% 8%;
-    --card-foreground: 40 15% 92%;
-    --popover: 30 6% 8%;
-    --popover-foreground: 40 15% 92%;
-    --primary: 44 53% 54%;
-    --primary-foreground: 30 8% 5%;
-    --secondary: 40 6% 10%;
-    --secondary-foreground: 40 15% 92%;
-    --muted: 40 6% 10%;
-    --muted-foreground: 40 8% 62%;
-    --accent: 44 53% 54%;
-    --accent-foreground: 30 8% 5%;
-    --destructive: 27 75% 52%;
-    --destructive-foreground: 30 8% 5%;
-    --border: 0 0% 100%;
-    --input: 40 6% 14%;
-    --ring: 44 53% 54%;
+    --background: 168 45% 4%;
+    --foreground: 40 20% 90%;
+    --card: 168 40% 7%;
+    --card-foreground: 40 20% 90%;
+    --popover: 168 40% 7%;
+    --popover-foreground: 40 20% 90%;
+    --primary: 44 70% 52%;
+    --primary-foreground: 168 45% 4%;
+    --secondary: 168 35% 10%;
+    --secondary-foreground: 40 20% 90%;
+    --muted: 168 35% 10%;
+    --muted-foreground: 168 15% 55%;
+    --accent: 44 70% 52%;
+    --accent-foreground: 168 45% 4%;
+    --destructive: 27 80% 52%;
+    --destructive-foreground: 168 45% 4%;
+    --border: 168 30% 18%;
+    --input: 168 35% 12%;
+    --ring: 44 70% 52%;
   }
 
-  /* Default border uses subtle white at 8% */
-  * { border-color: rgba(255, 255, 255, 0.08); }
+  * {
+    border-color: hsl(var(--border));
+  }
 }
 
 @layer base {
@@ -94,67 +87,156 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-wide;
+    font-family: 'Playfair Display', serif;
+    @apply tracking-tight;
+  }
+
+  em, .italic-accent {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: hsl(var(--gs-gold));
   }
 }
 
 @layer components {
+  /* Cards com dark-glass + micro-border teal */
   .tactical-card {
-    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300;
-    @apply hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5;
+    background: rgba(13, 61, 58, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(20, 110, 100, 0.3);
+    @apply rounded-lg p-6 transition-all duration-300;
+  }
+  .tactical-card:hover {
+    background: rgba(13, 61, 58, 0.4);
+    border-color: rgba(200, 160, 58, 0.4);
+    box-shadow: 0 8px 32px rgba(13, 61, 58, 0.4), 0 0 0 1px rgba(200, 160, 58, 0.15);
   }
 
+  /* Botão primário sólido */
   .tactical-button {
-    @apply bg-primary text-primary-foreground font-display uppercase tracking-wider;
-    @apply px-6 py-3 rounded transition-all duration-300;
-    @apply hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20;
+    background: hsl(var(--gs-gold));
+    color: hsl(var(--gs-bunker));
+    font-family: 'Inter', sans-serif;
+    @apply font-semibold uppercase tracking-widest px-7 py-3.5 rounded transition-all duration-300;
+  }
+  .tactical-button:hover {
+    background: hsl(var(--gs-gold-hover));
+    box-shadow: 0 0 24px rgba(200, 160, 58, 0.35);
+    transform: translateY(-1px);
   }
 
+  /* Botão ghost com borda dourada */
   .tactical-button-outline {
-    @apply border border-primary text-primary font-display uppercase tracking-wider;
-    @apply px-6 py-3 rounded transition-all duration-300 bg-transparent;
-    @apply hover:bg-primary/10;
+    border: 1px solid hsl(var(--gs-gold));
+    color: hsl(var(--gs-gold));
+    font-family: 'Inter', sans-serif;
+    @apply font-semibold uppercase tracking-widest px-7 py-3.5 rounded transition-all duration-300 bg-transparent;
+  }
+  .tactical-button-outline:hover {
+    background: rgba(200, 160, 58, 0.08);
+    box-shadow: 0 0 18px rgba(200, 160, 58, 0.2);
   }
 
+  /* Hero gradient atmosférico teal */
+  .hero-gradient {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(13, 61, 58, 0.8) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 50%, rgba(10, 45, 42, 0.5) 0%, transparent 60%),
+      linear-gradient(180deg, hsl(168, 45%, 4%) 0%, hsl(168, 40%, 6%) 50%, hsl(168, 45%, 4%) 100%);
+  }
+
+  /* Gradiente de seção */
+  .bunker-gradient {
+    background: linear-gradient(180deg, hsl(var(--gs-bunker)) 0%, hsl(var(--gs-bunker-light)) 100%);
+  }
+
+  /* Borda esquerda táctica dourada */
+  .tactical-border {
+    @apply border-l-2 border-primary pl-4;
+  }
+
+  /* Alert/disclaimer */
+  .alert-box {
+    background: rgba(27, 80, 52, 0.15);
+    border: 1px solid rgba(200, 160, 58, 0.2);
+    @apply rounded-lg p-4 text-sm;
+  }
+
+  /* Action highlight */
+  .action-box {
+    background: rgba(200, 160, 58, 0.08);
+    border: 1px solid rgba(200, 160, 58, 0.25);
+    @apply rounded-lg p-4;
+  }
+
+  /* Texto acinzentado */
+  .steel-text {
+    @apply text-muted-foreground;
+  }
+
+  /* Watermark */
   .shield-watermark {
     @apply fixed pointer-events-none select-none;
     opacity: var(--gs-shield-opacity);
   }
 
-  .section-fade {
-    @apply animate-fade-in;
+  /* Número de seção com teal */
+  .section-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: hsl(var(--gs-teal-bright));
+    text-transform: uppercase;
   }
 
-  .bunker-gradient {
-    background: linear-gradient(180deg, hsl(var(--gs-bunker)) 0%, hsl(var(--gs-bunker-light)) 100%);
+  /* Eyebrow label */
+  .section-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: hsl(var(--gs-gold));
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: hsl(var(--gs-gold));
+    opacity: 0.7;
   }
 
-  .tactical-border {
-    @apply border-l-2 border-primary pl-4;
+  /* Pillar card especial */
+  .pillar-card {
+    border-top: 1px solid rgba(20, 110, 100, 0.4);
+    @apply py-6 transition-all duration-300;
+  }
+  .pillar-card:hover {
+    border-top-color: hsl(var(--gs-gold));
   }
 
-  .alert-box {
-    @apply bg-destructive/10 border border-destructive/30 rounded-lg p-4 text-sm;
+  /* Foto/quote section */
+  .quote-block {
+    border-left: 3px solid hsl(var(--gs-gold));
+    @apply pl-6 py-2;
   }
 
-  .action-box {
-    @apply bg-primary/10 border border-primary/30 rounded-lg p-4;
-  }
-
-  .steel-text {
-    @apply text-muted-foreground;
-  }
-
+  /* Protocol mission item */
   .protocol-mission {
-    @apply flex items-start gap-3 p-4 bg-secondary/50 rounded-lg border border-border;
-  }
-
-  .hero-gradient {
-    background: radial-gradient(ellipse at top, hsl(var(--gs-bunker-light)) 0%, hsl(var(--gs-bunker)) 70%);
+    @apply flex items-start gap-3 p-4 rounded-lg border;
+    background: rgba(13, 61, 58, 0.2);
+    border-color: rgba(20, 110, 100, 0.25);
   }
 }
 
@@ -164,12 +246,24 @@
   }
 
   .section-alt {
-    background-color: #141312;
+    background-color: hsl(168, 40%, 5.5%);
   }
 
   .section-divider {
     height: 1px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(90deg, transparent, rgba(20, 110, 100, 0.4), rgba(200, 160, 58, 0.3), rgba(20, 110, 100, 0.4), transparent);
+  }
+
+  /* Glow teal sutil em elementos chave */
+  .teal-glow {
+    box-shadow: 0 0 40px rgba(13, 61, 58, 0.6), 0 0 80px rgba(13, 61, 58, 0.2);
+  }
+
+  /* Textura de fundo sutil */
+  .bg-texture {
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(13, 61, 58, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(10, 40, 38, 0.1) 0%, transparent 50%);
   }
 }
