@@ -14,7 +14,7 @@ export const Footer = () => {
   return (
     <footer className="bg-card border-t border-border mt-auto">
 
-      {/* ── BANNER EMERGENCIA ───────────────────────────── */}
+      {/* ── BANNER EMERGÊNCIA ───────────────────────────── */}
       <div className="border-b border-primary/20 bg-primary/5">
         <div className="container mx-auto px-4 py-3">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-center">
@@ -32,7 +32,7 @@ export const Footer = () => {
             </Link>
             <span className="hidden sm:block text-muted-foreground/40 text-xs">|</span>
             <span className="text-xs text-muted-foreground/60 font-mono">
-              Emergencia medica: 192 (SAMU)
+              Emergência médica: 192 (SAMU)
             </span>
           </div>
         </div>
@@ -47,22 +47,22 @@ export const Footer = () => {
             <Link to="/" className="flex items-center gap-3 mb-4 group">
               <ShieldIcon size="sm" />
               <span className="font-display text-xl tracking-wider text-foreground">
-                Guardiao Sobrio
+                O Guardião Sóbrio
               </span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-xs leading-relaxed mb-4">
-              Sobriedade adulta real. Estrategia pratica para atravessar a vontade
+              Sobriedade adulta real. Estratégia prática para atravessar a vontade
               de beber, proteger a casa e construir sobriedade sem teatro.
             </p>
             <p className="text-xs text-muted-foreground/50 leading-relaxed max-w-xs">
-              Este conteudo nao substitui psiquiatras, psicologos ou medicos.
+              Este conteúdo não substitui psiquiatras, psicólogos ou médicos.
             </p>
           </div>
 
-          {/* navegacao */}
+          {/* navegação */}
           <div>
             <h4 className="font-mono text-xs tracking-[0.15em] text-primary uppercase mb-5">
-              Navegacao
+              Navegação
             </h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
@@ -78,15 +78,15 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* metodo */}
+          {/* método */}
           <div>
             <h4 className="font-mono text-xs tracking-[0.15em] text-primary uppercase mb-5">
-              O Metodo
+              O Método
             </h4>
             <ul className="space-y-3">
               {[
                 { label: "Espelho", href: "/sobre" },
-                { label: "Tatica", href: "/protocolos" },
+                { label: "Tática", href: "/protocolos" },
                 { label: "Escudo", href: "/protocolos/escudo-72h" },
               ].map((item) => (
                 <li key={item.href}>
@@ -103,14 +103,14 @@ export const Footer = () => {
 
         </div>
 
-        {/* ── RODAPE ────────────────────────────────── */}
+        {/* ── RODAPÉ ────────────────────────────────── */}
         <div className="section-divider mb-6" />
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground/50 font-mono">
-            &copy; {new Date().getFullYear()} Luis Vanzer — O Guardiao Sobrio
+            &copy; {new Date().getFullYear()} Luis Vanzer — O Guardião Sóbrio
           </p>
           <p className="text-xs text-muted-foreground/40 font-mono">
-            Sobriedade nao e abstinencia. E construcao.
+            Sobriedade não é abstinência. É construção.
           </p>
         </div>
       </div>
