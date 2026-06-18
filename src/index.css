@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap');
+
+@layer base {
+  :root {
+    /* Noir Realista - Guardião Sóbrio (carvão quente) */
+    --background: 30 8% 5%;        /* #0e0d0c */
+    --foreground: 40 15% 92%;
+
+    --card: 30 6% 8%;              /* surface alt */
+    --card-foreground: 40 15% 92%;
+
+    --popover: 30 6% 8%;
+    --popover-foreground: 40 15% 92%;
+
+    --primary: 44 53% 54%;         /* #c8a84b ouro fosco */
+    --primary-foreground: 30 8% 5%;
+
+    --secondary: 40 6% 10%;        /* #1a1917 surface */
+    --secondary-foreground: 40 15% 92%;
+
+    --muted: 40 6% 10%;
+    --muted-foreground: 40 8% 62%;
+
+    --accent: 44 53% 54%;
+    --accent-foreground: 30 8% 5%;
+
+    --destructive: 27 75% 52%;     /* #e07b2a âmbar SOS */
+    --destructive-foreground: 30 8% 5%;
+
+    --border: 0 0% 100%;           /* used with /8 opacity via tokens below */
+    --input: 40 6% 14%;
+    --ring: 44 53% 54%;
+
+    --radius: 0.5rem;
+
+    /* Custom Guardião Sóbrio tokens */
+    --gs-bunker: 30 8% 5%;
+    --gs-bunker-light: 30 6% 8%;
+    --gs-tactical: 44 53% 54%;
+    --gs-tactical-hover: 44 53% 60%;
+    --gs-alert: 27 75% 52%;
+    --gs-steel: 40 8% 62%;
+    --gs-light: 40 15% 92%;
+    --gs-shield-opacity: 0.03;
+
+    --sidebar-background: 30 8% 5%;
+    --sidebar-foreground: 40 15% 92%;
+    --sidebar-primary: 44 53% 54%;
+    --sidebar-primary-foreground: 30 8% 5%;
+    --sidebar-accent: 40 6% 10%;
+    --sidebar-accent-foreground: 40 15% 92%;
+    --sidebar-border: 0 0% 100%;
+    --sidebar-ring: 44 53% 54%;
+  }
+
+  .dark {
+    --background: 30 8% 5%;
+    --foreground: 40 15% 92%;
+    --card: 30 6% 8%;
+    --card-foreground: 40 15% 92%;
+    --popover: 30 6% 8%;
+    --popover-foreground: 40 15% 92%;
+    --primary: 44 53% 54%;
+    --primary-foreground: 30 8% 5%;
+    --secondary: 40 6% 10%;
+    --secondary-foreground: 40 15% 92%;
+    --muted: 40 6% 10%;
+    --muted-foreground: 40 8% 62%;
+    --accent: 44 53% 54%;
+    --accent-foreground: 30 8% 5%;
+    --destructive: 27 75% 52%;
+    --destructive-foreground: 30 8% 5%;
+    --border: 0 0% 100%;
+    --input: 40 6% 14%;
+    --ring: 44 53% 54%;
+  }
+
+  /* Default border uses subtle white at 8% */
+  * { border-color: rgba(255, 255, 255, 0.08); }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wide;
+  }
+}
+
+@layer components {
+  .tactical-card {
+    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300;
+    @apply hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5;
+  }
+
+  .tactical-button {
+    @apply bg-primary text-primary-foreground font-display uppercase tracking-wider;
+    @apply px-6 py-3 rounded transition-all duration-300;
+    @apply hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20;
+  }
+
+  .tactical-button-outline {
+    @apply border border-primary text-primary font-display uppercase tracking-wider;
+    @apply px-6 py-3 rounded transition-all duration-300 bg-transparent;
+    @apply hover:bg-primary/10;
+  }
+
+  .shield-watermark {
+    @apply fixed pointer-events-none select-none;
+    opacity: var(--gs-shield-opacity);
+  }
+
+  .section-fade {
+    @apply animate-fade-in;
+  }
+
+  .bunker-gradient {
+    background: linear-gradient(180deg, hsl(var(--gs-bunker)) 0%, hsl(var(--gs-bunker-light)) 100%);
+  }
+
+  .tactical-border {
+    @apply border-l-2 border-primary pl-4;
+  }
+
+  .alert-box {
+    @apply bg-destructive/10 border border-destructive/30 rounded-lg p-4 text-sm;
+  }
+
+  .action-box {
+    @apply bg-primary/10 border border-primary/30 rounded-lg p-4;
+  }
+
+  .steel-text {
+    @apply text-muted-foreground;
+  }
+
+  .protocol-mission {
+    @apply flex items-start gap-3 p-4 bg-secondary/50 rounded-lg border border-border;
+  }
+
+  .hero-gradient {
+    background: radial-gradient(ellipse at top, hsl(var(--gs-bunker-light)) 0%, hsl(var(--gs-bunker)) 70%);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-alt {
+    background-color: #141312;
+  }
+
+  .section-divider {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}
