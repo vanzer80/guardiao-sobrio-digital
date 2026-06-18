@@ -5,6 +5,7 @@ on:
 
 permissions:
   contents: write
+  workflows: write
 
 jobs:
   migrate:
@@ -21,7 +22,7 @@ jobs:
         run: |
           git clone --depth=1 https://github.com/1980549/guardiao-sobrio-digital.git /tmp/source
 
-      - name: Copy all source files (excluding .git and .lovable)
+      - name: Copy all source files (excluding .git, .lovable and .github)
         run: |
           # Remove everything except .git and .github from destination
           find . -mindepth 1 -maxdepth 1 \
@@ -29,11 +30,12 @@ jobs:
             ! -name '.github' \
             -exec rm -rf {} +
 
-          # Copy source files excluding .git and .lovable
-          rsync -av --exclude='.git' --exclude='.lovable' /tmp/source/ .
-
-          # Remove the Lovable workflow from copied .github if present
-          rm -f .github/workflows/lovable.yml 2>/dev/null || true
+          # Copy source files excluding .git, .lovable AND .github (keeps our own workflows)
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.lovable' \
+            --exclude='.github' \
+            /tmp/source/ .
 
       - name: Configure git
         run: |
@@ -44,7 +46,7 @@ jobs:
         run: |
           git add -A
           git status
-          git diff --cached --quiet && echo "Nothing to commit" || git commit -m "chore: migrate full codebase from 1980549/guardiao-sobrio-digital - clean from Lovable"
+          git diff --cached --quiet && echo "Nothing to commit" || git commit -m "chore: migrate full codebase from 1980549/guardiao-sobrio-digital - Lovable removed"
 
       - name: Push to main
         run: git push origin main
