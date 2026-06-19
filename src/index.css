@@ -6,77 +6,51 @@
 
 @layer base {
   :root {
-    /* ── NOIR SYSTEM — O Guardião Sóbrio ── */
-
-    /* Fundos carvão */
-    --background: 0 0% 6.7%;          /* #111111 */
-    --foreground: 36 18% 90%;         /* #e8e2d9 — branco sujo quente */
-
-    --card: 0 0% 8.6%;                /* #161616 */
+    --background: 0 0% 6.7%;
+    --foreground: 36 18% 90%;
+    --card: 0 0% 8.6%;
     --card-foreground: 36 18% 90%;
-
     --popover: 0 0% 8.6%;
     --popover-foreground: 36 18% 90%;
-
-    /* Âmbar envelhecido — único acento */
-    --primary: 36 68% 47%;            /* #C8922A */
+    --primary: 36 68% 47%;
     --primary-foreground: 0 0% 6.7%;
-
-    --secondary: 0 0% 10.6%;          /* #1c1c1c */
+    --secondary: 0 0% 10.6%;
     --secondary-foreground: 36 18% 90%;
-
     --muted: 0 0% 10.6%;
-    --muted-foreground: 30 8% 56%;    /* #9a9085 */
-
+    --muted-foreground: 30 8% 56%;
     --accent: 36 68% 47%;
     --accent-foreground: 0 0% 6.7%;
-
-    --destructive: 0 63% 32%;         /* #8B1A1A — vermelho escuro */
+    --destructive: 0 63% 32%;
     --destructive-foreground: 36 18% 90%;
-
-    --border: 0 0% 14.1%;             /* #242424 */
-    --input: 0 0% 11%;                /* #1c1c1c */
+    --border: 0 0% 14.1%;
+    --input: 0 0% 11%;
     --ring: 36 68% 47%;
-
-    --radius: 0rem;                   /* sem border-radius — estética tática */
-
-    /* Tokens custom */
-    --gs-void: 0 0% 5.1%;             /* #0d0d0d */
-    --gs-base: 0 0% 6.7%;             /* #111111 */
-    --gs-surface: 0 0% 8.6%;          /* #161616 */
-    --gs-raised: 0 0% 10.6%;          /* #1c1c1c */
-    --gs-border: 0 0% 14.1%;          /* #242424 */
-    --gs-amber: 36 68% 47%;           /* #C8922A */
-    --gs-amber-dim: 36 52% 31%;       /* #8a6318 */
+    --radius: 0rem;
+    --gs-void: 0 0% 5.1%;
+    --gs-base: 0 0% 6.7%;
+    --gs-surface: 0 0% 8.6%;
+    --gs-raised: 0 0% 10.6%;
+    --gs-border: 0 0% 14.1%;
+    --gs-amber: 36 68% 47%;
+    --gs-amber-dim: 36 52% 31%;
     --gs-amber-glow: rgba(200, 146, 42, 0.10);
-    --gs-parchment: 36 18% 90%;       /* #e8e2d9 */
-    --gs-steel: 30 8% 56%;            /* #9a9085 */
-    --gs-faint: 25 5% 34%;            /* #5c5550 */
-    --gs-red: 0 63% 32%;              /* #8B1A1A */
+    --gs-parchment: 36 18% 90%;
+    --gs-steel: 30 8% 56%;
+    --gs-faint: 25 5% 34%;
+    --gs-red: 0 63% 32%;
     --gs-grain-opacity: 0.03;
   }
-
-  * {
-    border-color: hsl(var(--border));
-  }
+  * { border-color: hsl(var(--border)); }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Grain fotográfico global */
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
     position: relative;
   }
-
   body::after {
     content: '';
     position: fixed;
@@ -86,234 +60,103 @@
     pointer-events: none;
     z-index: 9998;
   }
-
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', serif;
     @apply tracking-tight;
   }
-
+  h1 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.05; font-weight: 600; }
+  h2 { font-size: clamp(1.875rem, 4vw, 3rem); }
+  h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
   em, .italic-accent {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     color: hsl(var(--gs-amber));
   }
-
-  /* Cormorant Garamond renders smaller — compensate display sizes */
-  h1 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.05; font-weight: 600; }
-  h2 { font-size: clamp(1.875rem, 4vw, 3rem); line-height: 1.1; font-weight: 600; }
-  h3 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; font-weight: 500; }
 }
 
 @layer components {
-
-  /* ── CARDS ── */
   .tactical-card {
     background: hsl(var(--gs-surface));
     border: 1px solid hsl(var(--gs-border));
     position: relative;
     @apply p-6 transition-all duration-300;
   }
-  /* Linha âmbar à esquerda — assinatura visual */
   .tactical-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 100%;
+    top: 0; left: 0;
+    width: 2px; height: 100%;
     background: hsl(var(--gs-amber));
     opacity: 0;
     transition: opacity 0.3s;
   }
-  .tactical-card:hover {
-    border-color: hsl(var(--gs-amber-dim));
-  }
-  .tactical-card:hover::before {
-    opacity: 1;
-  }
+  .tactical-card:hover { border-color: hsl(var(--gs-amber-dim)); }
+  .tactical-card:hover::before { opacity: 1; }
 
-  /* ── BOTÃO PRIMÁRIO ── */
   .tactical-button {
     background: hsl(var(--gs-amber));
     color: hsl(var(--gs-void));
     font-family: 'Inter', sans-serif;
-    border: 1px solid hsl(var(--gs-amber));
     font-size: 0.7rem;
+    border: 1px solid hsl(var(--gs-amber));
     @apply font-semibold uppercase tracking-widest px-8 py-3.5 transition-all duration-300;
   }
-  .tactical-button:hover {
-    background: transparent;
-    color: hsl(var(--gs-amber));
-  }
+  .tactical-button:hover { background: transparent; color: hsl(var(--gs-amber)); }
 
-  /* ── BOTÃO SECUNDÁRIO ── */
   .tactical-button-outline {
     border: 1px solid hsl(var(--gs-steel));
     color: hsl(var(--gs-steel));
     font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
     @apply font-medium uppercase tracking-widest px-8 py-3.5 bg-transparent transition-all duration-300;
   }
-  .tactical-button-outline:hover {
-    border-color: hsl(var(--gs-amber));
-    color: hsl(var(--gs-amber));
-  }
+  .tactical-button-outline:hover { border-color: hsl(var(--gs-amber)); color: hsl(var(--gs-amber)); }
 
-  /* ── HERO GRADIENT ── */
   .hero-gradient {
     background:
       radial-gradient(ellipse 70% 50% at 30% 40%, var(--gs-amber-glow) 0%, transparent 70%),
       linear-gradient(180deg, hsl(var(--gs-void)) 0%, hsl(var(--gs-base)) 100%);
   }
-
-  /* ── SEÇÃO ALT ── */
-  .section-alt {
-    background-color: hsl(var(--gs-surface));
+  .section-alt { background-color: hsl(var(--gs-surface)); }
+  .bunker-gradient { background: linear-gradient(180deg, hsl(var(--gs-void)) 0%, hsl(var(--gs-base)) 100%); }
+  .tactical-border { border-left: 2px solid hsl(var(--gs-amber)); @apply pl-4; }
+  .alert-box { background: rgba(139,26,26,0.08); border: 1px solid rgba(139,26,26,0.25); @apply p-4 text-sm; }
+  .action-box { background: var(--gs-amber-glow); border: 1px solid rgba(200,146,42,0.2); @apply p-4; }
+  .urgency-band {
+    background: rgba(139,26,26,0.06);
+    border-top: 1px solid rgba(139,26,26,0.2);
+    border-bottom: 1px solid rgba(139,26,26,0.2);
   }
-
-  /* ── BUNKER GRADIENT ── */
-  .bunker-gradient {
-    background: linear-gradient(180deg, hsl(var(--gs-void)) 0%, hsl(var(--gs-base)) 100%);
-  }
-
-  /* ── BORDA TÁTICA ── */
-  .tactical-border {
-    border-left: 2px solid hsl(var(--gs-amber));
-    @apply pl-4;
-  }
-
-  /* ── ALERTA / DISCLAIMER ── */
-  .alert-box {
-    background: rgba(139, 26, 26, 0.08);
-    border: 1px solid rgba(139, 26, 26, 0.25);
-    @apply p-4 text-sm;
-  }
-
-  /* ── ACTION BOX ── */
-  .action-box {
-    background: var(--gs-amber-glow);
-    border: 1px solid rgba(200, 146, 42, 0.2);
-    @apply p-4;
-  }
-
-  /* ── EYEBROW ── */
   .section-eyebrow {
     font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 500;
+    font-size: 0.7rem; font-weight: 500;
     letter-spacing: 0.25em;
     color: hsl(var(--gs-amber));
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
   }
   .section-eyebrow::before {
-    content: '';
-    display: block;
-    width: 2rem;
-    height: 1px;
-    background: hsl(var(--gs-amber));
-    opacity: 0.6;
+    content: ''; display: block;
+    width: 2rem; height: 1px;
+    background: hsl(var(--gs-amber)); opacity: 0.6;
   }
-
-  /* ── PILLAR CARD ── */
-  .pillar-card {
-    border-top: 1px solid hsl(var(--gs-border));
-    @apply py-6 transition-all duration-300;
-  }
-  .pillar-card:hover {
-    border-top-color: hsl(var(--gs-amber));
-  }
-
-  /* ── QUOTE BLOCK ── */
-  .quote-block {
-    border-left: 3px solid hsl(var(--gs-amber));
-    @apply pl-6 py-2;
-  }
-
-  /* ── PROTOCOL MISSION ── */
-  .protocol-mission {
-    @apply flex items-start gap-3 p-4 border;
-    background: rgba(200, 146, 42, 0.04);
-    border-color: hsl(var(--gs-border));
-  }
-
-  /* ── WATERMARK ── */
-  .shield-watermark {
-    @apply fixed pointer-events-none select-none;
-    opacity: 0.025;
-  }
-
-  /* ── SECTION NUMBER ── */
-  .section-number {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    color: hsl(var(--gs-faint));
-    text-transform: uppercase;
-  }
-
-  /* ── URGENCY BAND ── */
-  .urgency-band {
-    background: rgba(139, 26, 26, 0.06);
-    border-top: 1px solid rgba(139, 26, 26, 0.2);
-    border-bottom: 1px solid rgba(139, 26, 26, 0.2);
-  }
+  .pillar-card { border-top: 1px solid hsl(var(--gs-border)); @apply py-6 transition-all duration-300; }
+  .pillar-card:hover { border-top-color: hsl(var(--gs-amber)); }
+  .quote-block { border-left: 3px solid hsl(var(--gs-amber)); @apply pl-6 py-2; }
+  .protocol-mission { @apply flex items-start gap-3 p-4 border; background: rgba(200,146,42,0.04); border-color: hsl(var(--gs-border)); }
+  .shield-watermark { @apply fixed pointer-events-none select-none; opacity: 0.025; }
+  .section-number { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; color: hsl(var(--gs-faint)); text-transform: uppercase; }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  /* Divisória minimalista */
-  .section-divider {
-    height: 1px;
-    width: 100%;
-    background: hsl(var(--gs-border));
-  }
-
-  .section-divider-amber {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .section-divider-amber::before,
-  .section-divider-amber::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: hsl(var(--gs-border));
-  }
-
-  /* Glow âmbar sutil */
-  .amber-glow {
-    box-shadow: 0 0 32px var(--gs-amber-glow);
-  }
-
-  /* Textura de fundo sutil */
-  .bg-texture {
-    background-image:
-      radial-gradient(circle at 15% 25%, var(--gs-amber-glow) 0%, transparent 50%);
-  }
-
-  /* Steel text */
-  .steel-text {
-    color: hsl(var(--gs-steel));
-  }
-
-  /* Espaçamento editorial responsivo */
-  .section-breathe {
-    padding-top: clamp(4rem, 10vw, 8rem);
-    padding-bottom: clamp(4rem, 10vw, 8rem);
-  }
-
-  /* Display heading override — force Cormorant Garamond */
-  .font-display {
-    font-family: 'Cormorant Garamond', serif !important;
-  }
+  .text-balance { text-wrap: balance; }
+  .section-divider { height: 1px; width: 100%; background: hsl(var(--gs-border)); }
+  .section-divider-amber { display: flex; align-items: center; gap: 1rem; }
+  .section-divider-amber::before, .section-divider-amber::after { content: ''; flex: 1; height: 1px; background: hsl(var(--gs-border)); }
+  .amber-glow { box-shadow: 0 0 32px var(--gs-amber-glow); }
+  .bg-texture { background-image: radial-gradient(circle at 15% 25%, var(--gs-amber-glow) 0%, transparent 50%); }
+  .steel-text { color: hsl(var(--gs-steel)); }
+  .section-breathe { padding-top: clamp(4rem, 10vw, 8rem); padding-bottom: clamp(4rem, 10vw, 8rem); }
+  .font-display { font-family: 'Cormorant Garamond', serif !important; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -333,15 +176,9 @@
     0%, 100% { opacity: 1; }
     50%       { opacity: 0; }
   }
-
-  .gs-reveal {
-    opacity: 0;
-    transform: translateY(24px);
-  }
+  .gs-reveal { opacity: 0; transform: translateY(24px); }
   .gs-reveal.is-visible,
-  .is-visible .gs-reveal {
-    animation: gs-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
+  .is-visible .gs-reveal { animation: gs-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
   .gs-reveal-delay-1 { animation-delay: 0.1s; }
   .gs-reveal-delay-2 { animation-delay: 0.2s; }
   .gs-reveal-delay-3 { animation-delay: 0.35s; }
