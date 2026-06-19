@@ -10,8 +10,7 @@ const pathCards = [
     id: "parando",
     label: "01",
     title: "Estou parando agora",
-    description:
-      "Primeiras 72h. Vontade intensa, abstinência física. Existe um protocolo para cada hora desse período.",
+    description: "Primeiras 72h. Vontade intensa, abstinência física. Existe um protocolo para cada hora desse período.",
     href: "/trilhas/recuperacao",
     icon: Shield,
   },
@@ -19,8 +18,7 @@ const pathCards = [
     id: "vontade",
     label: "02",
     title: "A fissura chegou agora",
-    description:
-      "Não é fraqueza. É uma onda com duração previsível. O protocolo existe exatamente para esse momento.",
+    description: "Não é fraqueza. É uma onda com duração previsível. O protocolo existe exatamente para esse momento.",
     href: "/trilhas/vontade-hoje",
     icon: Zap,
   },
@@ -28,8 +26,7 @@ const pathCards = [
     id: "familia",
     label: "03",
     title: "Protejo alguém em casa",
-    description:
-      "Família precisa de estratégia própria. Não de culpa, não de espera. De estrutura.",
+    description: "Família precisa de estratégia própria. Não de culpa, não de espera. De estrutura.",
     href: "/trilhas/familiar",
     icon: Lock,
   },
@@ -38,18 +35,15 @@ const pathCards = [
 const pillars = [
   {
     word: "Espelho",
-    description:
-      "Ver o que está acontecendo de verdade, sem filtro. O diagnóstico honesto é o único ponto de partida válido.",
+    description: "Ver o que está acontecendo de verdade, sem filtro. O diagnóstico honesto é o único ponto de partida válido.",
   },
   {
     word: "Tática",
-    description:
-      "Protocolo antes de decisão. Quando o momento crítico chega, você não improvisa — executa.",
+    description: "Protocolo antes de decisão. Quando o momento crítico chega, você não improvisa — executa.",
   },
   {
     word: "Escudo",
-    description:
-      "Construir um perímetro que aguente a pressão. Ambiental, relacional, emocional.",
+    description: "Construir um perímetro que aguente a pressão. Ambiental, relacional, emocional.",
   },
 ];
 
@@ -69,11 +63,11 @@ const Index = () => {
             <div className="flex items-center gap-3 mb-8">
               <div className="h-px w-12 bg-primary" />
               <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">
-                Luis Vanzer — O Guardião Sóbrio
+                O Guardião Sóbrio
               </span>
             </div>
 
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-foreground mb-6">
+            <h1 className="font-display leading-[1.05] tracking-tight text-foreground mb-6">
               Você não precisa ser forte.{" "}
               <em className="text-primary not-italic">Precisa de estrutura.</em>
             </h1>
@@ -91,17 +85,11 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                to="/comece-aqui"
-                className="tactical-button flex items-center justify-center gap-2"
-              >
+              <Link to="/comece-aqui" className="tactical-button flex items-center justify-center gap-2">
                 Iniciar Protocolo
                 <ArrowRight size={16} />
               </Link>
-              <Link
-                to="/protocolos"
-                className="tactical-button-outline flex items-center justify-center gap-2"
-              >
+              <Link to="/protocolos" className="tactical-button-outline flex items-center justify-center gap-2">
                 Ver os Protocolos
               </Link>
             </div>
@@ -119,22 +107,16 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
             <p className="text-sm text-muted-foreground font-mono tracking-wide">
-              <span className="text-primary font-semibold block text-base mb-1">
-                A fissura não pede licença.
-              </span>
+              <span className="text-primary font-semibold block text-base mb-1">A fissura não pede licença.</span>
               O protocolo também não.
             </p>
             <p className="text-sm text-muted-foreground font-mono tracking-wide">
-              <span className="text-primary font-semibold block text-base mb-1">
-                72 horas.
-              </span>
+              <span className="text-primary font-semibold block text-base mb-1">72 horas.</span>
               Esse é o período mais difícil. Temos um mapa para cada hora.
             </p>
             <p className="text-sm text-muted-foreground font-mono tracking-wide">
-              <span className="text-primary font-semibold block text-base mb-1">
-                O Guardião Sóbrio não promete cura.
-              </span>
-              Entrega estrutura.
+              <span className="text-primary font-semibold block text-base mb-1">Guardiões não prometem cura.</span>
+              Entregam estrutura.
             </p>
           </div>
         </div>
@@ -147,11 +129,9 @@ const Index = () => {
           <div className="mb-14">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8 bg-primary" />
-              <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">
-                Ponto de entrada
-              </span>
+              <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Ponto de entrada</span>
             </div>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground">
+            <h2 className="font-display text-foreground">
               Onde você está agora?
             </h2>
             <p className="text-muted-foreground mt-3 max-w-xl">
@@ -161,7 +141,11 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {pathCards.map((card) => (
-              <Link key={card.id} to={card.href} className="tactical-card group block">
+              <Link
+                key={card.id}
+                to={card.href}
+                className="tactical-card group block"
+              >
                 <div className="flex items-start justify-between mb-6">
                   <span className="font-mono text-xs text-primary/60">{card.label}</span>
                   <card.icon
@@ -176,11 +160,8 @@ const Index = () => {
                   {card.description}
                 </p>
                 <div className="flex items-center gap-1 text-xs text-primary font-medium uppercase tracking-widest">
-                  Acessar protocolo
-                  <ArrowRight
-                    size={12}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
+                  Entrar na trilha
+                  <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             ))}
@@ -194,12 +175,10 @@ const Index = () => {
 
           <div className="flex items-center gap-3 mb-14">
             <div className="h-px w-8 bg-primary" />
-            <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">
-              O método
-            </span>
+            <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">O método</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
             {pillars.map((pillar, i) => (
               <div key={pillar.word} className="group">
                 <div className="section-divider mb-8" />
@@ -216,21 +195,16 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="mt-16 flex flex-col sm:flex-row gap-3">
-            <Link
-              to="/protocolos"
-              className="tactical-button flex items-center justify-center gap-2"
-            >
-              Ver todos os protocolos
-              <ArrowRight size={14} />
+          {/* CTAs após pilares */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link to="/protocolos" className="tactical-button flex items-center justify-center gap-2">
+              Ver todos os Protocolos <ArrowRight size={14} />
             </Link>
-            <Link
-              to="/produtos"
-              className="tactical-button-outline flex items-center justify-center gap-2"
-            >
-              Conhecer os produtos
+            <Link to="/produtos" className="tactical-button-outline flex items-center justify-center gap-2">
+              Conhecer os Produtos
             </Link>
           </div>
+
         </div>
       </section>
 
@@ -240,16 +214,14 @@ const Index = () => {
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-8 bg-primary" />
-              <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">
-                Quem fala
-              </span>
+              <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Quem fala</span>
             </div>
             <blockquote className="font-display text-2xl md:text-3xl text-foreground leading-snug mb-8 tactical-border">
               &ldquo;Isso não veio de um manual.
               Veio de dentro, com estrutura, com honestidade
               e sem performance.&rdquo;
             </blockquote>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 mb-6">
               <div className="w-10 h-10 border border-primary/20 flex items-center justify-center bg-primary/5">
                 <ShieldIcon size="sm" showLetters={false} />
               </div>
@@ -261,14 +233,12 @@ const Index = () => {
                 </p>
               </div>
             </div>
-            <div className="mt-6">
-              <Link
-                to="/sobre"
-                className="text-xs text-primary hover:underline inline-flex items-center gap-1 uppercase tracking-widest"
-              >
-                Sobre a marca e o método <ArrowRight size={12} />
-              </Link>
-            </div>
+            <Link
+              to="/sobre"
+              className="text-xs text-primary uppercase tracking-widest hover:underline flex items-center gap-1"
+            >
+              Sobre o método <ArrowRight size={12} />
+            </Link>
           </div>
         </div>
       </section>
@@ -282,17 +252,15 @@ const Index = () => {
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-px w-8 bg-primary" />
-                  <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">
-                    Despachos do campo
-                  </span>
+                  <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Despachos do campo</span>
                 </div>
-                <h2 className="font-display text-3xl md:text-4xl text-foreground">
+                <h2 className="font-display text-foreground">
                   Texto direto. Sem promessas vazias.
                 </h2>
               </div>
               <Link
                 to="/blog"
-                className="hidden md:flex items-center gap-2 text-xs text-primary hover:underline uppercase tracking-widest"
+                className="hidden md:flex items-center gap-2 text-sm text-primary hover:underline uppercase tracking-widest text-xs"
               >
                 Ver todos <ArrowRight size={14} />
               </Link>
@@ -316,21 +284,14 @@ const Index = () => {
                     {post.excerpt}
                   </p>
                   <div className="flex items-center gap-1 text-xs text-primary uppercase tracking-widest">
-                    Ler despacho{" "}
-                    <ArrowRight
-                      size={12}
-                      className="group-hover:translate-x-1 transition-transform"
-                    />
+                    Ler despacho <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>
               ))}
             </div>
 
             <div className="mt-8 md:hidden">
-              <Link
-                to="/blog"
-                className="tactical-button-outline w-full flex items-center justify-center gap-2"
-              >
+              <Link to="/blog" className="tactical-button-outline w-full flex items-center justify-center gap-2">
                 Ver todos os despachos <ArrowRight size={14} />
               </Link>
             </div>
@@ -344,20 +305,17 @@ const Index = () => {
         <div className="container mx-auto px-4 max-w-2xl">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-8 bg-primary" />
-            <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">
-              Protocolo semanal
-            </span>
+            <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Protocolo semanal</span>
           </div>
-          <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">
+          <h2 className="font-display text-foreground mb-4">
             Um protocolo por semana. Direto na sua caixa.
           </h2>
           <p className="text-muted-foreground mb-8">
-            Sem spam. Sem teatro.
-            <br />
+            Sem spam. Sem teatro.<br />
             Uma missão tática por semana para quem está construindo sobriedade no mundo real.
           </p>
           <NewsletterCapture
-            ctaLabel="Receber o Protocolo"
+            ctaLabel="Quero a Estrutura"
             trust="Sem cobrança. Você sai quando quiser."
             successMessage="Você está dentro. Primeiro protocolo chega em até 7 dias."
             tag="newsletter-home"

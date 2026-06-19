@@ -8,15 +8,15 @@ const opcoes = [
     icon: Zap,
     title: "Estou em crise agora",
     description: "Fissura ativa. Abstinência. Não consigo parar de pensar nisso. Preciso de protocolo imediato.",
-    cta: "Acessar Protocolo de Urgência",
-    href: "/protocolos/escudo",
+    cta: "Protocolo Escudo Agora",
+    href: "/protocolos/escudo-72h",
   },
   {
     label: "02",
     icon: Shield,
     title: "Quero me preparar antes",
-    description: "Estou bem agora, mas sei que o momento difícil vai chegar. Quero estar pronto.",
-    cta: "Ver os Protocolos",
+    description: "Estou bem agora, mas sei que o momento difícil vai chegar. Quero estar pronto quando vier.",
+    cta: "Ver Todos os Protocolos",
     href: "/protocolos",
   },
   {
@@ -24,7 +24,7 @@ const opcoes = [
     icon: Compass,
     title: "Não sei por onde começar",
     description: "Nunca tentei de forma estruturada. Preciso de um ponto de partida claro, sem julgamento.",
-    cta: "Iniciar do Zero",
+    cta: "Iniciar Estrutura do Zero",
     href: "/trilhas/recuperacao",
   },
 ];
@@ -43,7 +43,7 @@ const ComeceAqui = () => {
                 Ponto de entrada
               </span>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight mb-6">
+            <h1 className="font-display text-foreground leading-tight mb-6">
               Escolha onde{" "}
               <em className="text-primary not-italic">você está agora.</em>
             </h1>
@@ -75,7 +75,7 @@ const ComeceAqui = () => {
                 </div>
                 <Link
                   to={op.href}
-                  className="tactical-button flex items-center justify-center gap-2 text-xs"
+                  className="tactical-button flex items-center justify-center gap-2"
                 >
                   {op.cta} <ArrowRight size={14} />
                 </Link>

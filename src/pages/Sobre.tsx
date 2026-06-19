@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
-import { ShieldIcon } from "@/components/ShieldIcon";
 import { ArrowRight } from "lucide-react";
 
 const fundamentos = [
@@ -27,13 +26,14 @@ const Sobre = () => {
                 Sobre
               </span>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight mb-6">
+            <h1 className="font-display text-foreground leading-tight mb-6">
               Isso não veio{" "}
               <em className="text-primary not-italic">de um manual.</em>
             </h1>
             <p className="text-muted-foreground text-lg max-w-xl leading-relaxed">
-              Luis Vanzer. Criador de conteúdo sobre sobriedade adulta real.
-              Não é terapeuta, não é coach, não é religioso.
+              Luis Vanzer. Criador de O Guardião Sóbrio.
+              Não é terapeuta. Não é coach. Não é religioso.
+              Está no processo — e fala a partir daí.
             </p>
           </div>
         </div>
@@ -52,19 +52,21 @@ const Sobre = () => {
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
                   A sobriedade não chegou como revelação. Chegou como necessidade.
-                  Depois de anos funcionando como pessoa que bebia
-                  — trabalho, família, aparências mantidas —
-                  chegou um momento em que o custo ficou visível demais para ignorar.
+                </p>
+                <p>
+                  Anos funcionando como pessoa que bebia.
+                  Trabalho, família, aparências mantidas.
+                  Até que o custo ficou visível demais para ignorar.
                 </p>
                 <p>
                   Não fui para a AA. Não fui para a igreja.
-                  Fui para dentro, com estrutura, com honestidade e sem performance.
+                  Fui para dentro — com estrutura, com honestidade, sem performance.
                   Documentei o processo.
                 </p>
                 <p>
                   O que está aqui é o que funcionou.
                   Sem promessa de que vai funcionar para todo mundo.
-                  Com honestidade sobre o que é difícil e por que é difícil.
+                  Sem omissão do que é difícil.
                 </p>
               </div>
             </div>
@@ -78,10 +80,10 @@ const Sobre = () => {
                 {[
                   "Não sou terapeuta nem médico",
                   "Não prometo cura ou resultados garantidos",
-                  "Não tenho vínculo com nenhuma religião",
+                  "Não tenho vínculo com nenhuma religião ou método",
                   "Não sou coach motivacional",
                   "Não julgo quem recai",
-                  "Não me coloco como herói que já resolveu tudo",
+                  "Não me coloco como quem já resolveu tudo",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3 py-4 border-b border-border">
                     <span className="text-primary font-mono text-xs mt-0.5 flex-shrink-0">—</span>
@@ -103,13 +105,13 @@ const Sobre = () => {
             <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Os fundamentos</span>
           </div>
           <div className="max-w-2xl">
-            <h2 className="font-display text-3xl md:text-4xl text-foreground mb-10">
+            <h2 className="font-display text-foreground mb-10">
               Os princípios que guiam o método.
             </h2>
             <div className="space-y-0">
               {fundamentos.map((f, i) => (
-                <div key={f} className="flex items-start gap-6 py-5 border-b border-border">
-                  <span className="font-mono text-xs text-primary/50 mt-1 w-6 flex-shrink-0">
+                <div key={f} className="flex items-start gap-6 py-5 border-b border-border group">
+                  <span className="font-mono text-xs text-primary/50 mt-1 w-6 flex-shrink-0 group-hover:text-primary transition-colors">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-foreground text-sm leading-relaxed">{f}</p>
@@ -134,10 +136,10 @@ const Sobre = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link to="/protocolos" className="tactical-button flex items-center justify-center gap-2">
-              Ver os Protocolos <ArrowRight size={16} />
+              Ver Protocolos <ArrowRight size={14} />
             </Link>
             <Link to="/comece-aqui" className="tactical-button-outline flex items-center justify-center gap-2">
-              Iniciar do Zero
+              Começar Estrutura
             </Link>
           </div>
         </div>

@@ -1,333 +1,278 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
-import { ShieldIcon } from "@/components/ShieldIcon";
-import {
-  Shield,
-  Users,
-  Moon,
-  Clock,
-  ArrowRight,
-  AlertTriangle,
-  RefreshCw,
-  Flame,
-  Home,
-  Construction,
-  BookOpen,
-  Heart,
-  Repeat,
-} from "lucide-react";
+import { AlertTriangle, ArrowRight, Clock, Lock } from "lucide-react";
+
+type ProtoStatus = "ativo" | "preview" | "em-desenvolvimento";
+
+type Protocolo = {
+  id: string;
+  num: string;
+  title: string;
+  subtitle: string;
+  audience: string;
+  summary: string;
+  duration?: string;
+  status: ProtoStatus;
+  href?: string;
+};
+
+const principal: Protocolo[] = [
+  {
+    id: "escudo-72h",
+    num: "P-01",
+    title: "Protocolo Escudo 72h",
+    subtitle: "Protocolo de crise imediata",
+    audience: "Em recuperação · Vontade hoje",
+    summary:
+      "O protocolo central do método. Guia hora a hora para atravessar as primeiras 72 horas em crise — fissura ativa, abstinência, situação de risco. Sem improvisar.",
+    duration: "72 horas",
+    status: "ativo",
+    href: "/protocolos/escudo-72h",
+  },
+];
+
+const complementares: Protocolo[] = [
+  {
+    id: "perimetro-24h",
+    num: "P-02",
+    title: "Protocolo Perímetro 24h",
+    subtitle: "Prevenção e planejamento diário",
+    audience: "Em recuperação",
+    summary:
+      "O protocolo de rotina. Check matinal, perímetro de segurança, mapeamento de gatilhos e protocolo de encerramento do dia. Para transformar estrutura em hábito.",
+    duration: "24h / recorrente",
+    status: "ativo",
+    href: "/protocolos/perimetro-24h",
+  },
+  {
+    id: "primeiros-30",
+    num: "P-03",
+    title: "Primeiros 30 Dias",
+    subtitle: "Programa de construção de base",
+    audience: "Em recuperação",
+    summary:
+      "Trinta dias com protocolo diário. Revisões semanais de rota. Para quem quer estrutura completa no período mais crítico — sem improvisar o dia seguinte.",
+    duration: "30 dias",
+    status: "preview",
+  },
+  {
+    id: "seguranca-respeito",
+    num: "P-04",
+    title: "Protocolo Segurança e Respeito",
+    subtitle: "Para familiares e cônjuges",
+    audience: "Familiar",
+    summary:
+      "Como proteger quem cuida sem virar o guardião do outro. Separação de papéis, perímetro para a família, scripts para situações de crise. Sem culpa, sem script de resgate.",
+    duration: "Referência permanente",
+    status: "preview",
+  },
+  {
+    id: "bunker-noturno",
+    num: "P-05",
+    title: "Protocolo Bunker Noturno",
+    subtitle: "Gerenciamento do risco noturno",
+    audience: "Em recuperação",
+    summary:
+      "Noite é o momento de maior vulnerabilidade. Este protocolo mapeia os gatilhos noturnos específicos e cria uma estrutura de encerramento para proteger o sono.",
+    duration: "Noturno / recorrente",
+    status: "preview",
+  },
+];
+
+const emDesenvolvimento: Protocolo[] = [
+  {
+    id: "reentrada-social",
+    num: "P-06",
+    title: "Reentrada Social 7 Dias",
+    subtitle: "Volta ao ambiente social",
+    audience: "Em recuperação",
+    summary: "Como voltar a eventos, reuniões e situações sociais com álcool sem improvisar a resposta.",
+    status: "em-desenvolvimento",
+  },
+  {
+    id: "recaida-1a-hora",
+    num: "P-07",
+    title: "Protocolo Recaída — 1ª Hora",
+    subtitle: "Gestão imediata pós-recaída",
+    audience: "Em recuperação",
+    summary: "O que fazer na primeira hora depois de uma recaída. Sem drama, sem colapso. Só estrutura.",
+    status: "em-desenvolvimento",
+  },
+  {
+    id: "familia-estendida",
+    num: "P-08",
+    title: "Protocolo Família Estendida",
+    subtitle: "Gestão de família ampla",
+    audience: "Familiar",
+    summary: "Como lidar com festas de família, comentários de parentes e dinâmicas de grupo que sabotam a estrutura.",
+    status: "em-desenvolvimento",
+  },
+  {
+    id: "insight-habito",
+    num: "P-09",
+    title: "Protocolo Insight → Hábito",
+    subtitle: "Consolidação de aprendizado",
+    audience: "Em recuperação",
+    summary: "Como transformar um insight em protocolo permanente. Metodologia para fixar o que funciona.",
+    status: "em-desenvolvimento",
+  },
+  {
+    id: "conjuge",
+    num: "P-10",
+    title: "Protocolo Cônjuge",
+    subtitle: "Para parceiros próximos",
+    audience: "Familiar",
+    summary: "Específico para cônjuges. Como apoiar sem controlar, proteger sem salvar, e manter o próprio equilíbrio.",
+    status: "em-desenvolvimento",
+  },
+  {
+    id: "familiares-distancia",
+    num: "P-11",
+    title: "Protocolo Familiares à Distância",
+    subtitle: "Apoio remoto",
+    audience: "Familiar",
+    summary: "Para familiares que apoiam de outra cidade ou país. O que fazer, o que não fazer, como manter contato sem vigilância.",
+    status: "em-desenvolvimento",
+  },
+];
+
+const statusConfig = {
+  ativo:              { label: "Ativo",              color: "text-primary border-primary/40 bg-primary/10" },
+  preview:            { label: "Preview",            color: "text-muted-foreground border-border bg-secondary" },
+  "em-desenvolvimento": { label: "Em breve",         color: "text-muted-foreground/60 border-border/50 bg-background" },
+};
+
+const ProtoCard = ({ p, compact = false }: { p: Protocolo; compact?: boolean }) => {
+  const cfg = statusConfig[p.status];
+  return (
+    <div className={`tactical-card ${compact ? "p-5" : "p-7"} flex flex-col`}>
+      <div className="flex items-start justify-between mb-4">
+        <span className="font-mono text-xs text-muted-foreground/40">{p.num}</span>
+        <div className={`inline-flex items-center gap-1.5 text-xs px-2.5 py-1 border font-mono ${cfg.color}`}>
+          {p.status === "ativo" ? <ArrowRight size={9} /> : <Clock size={9} />}
+          {cfg.label}
+        </div>
+      </div>
+
+      <h3 className={`font-display text-foreground leading-tight mb-1 ${compact ? "text-xl" : "text-2xl"}`}>
+        {p.title}
+      </h3>
+      <p className="text-xs font-mono text-primary/50 mb-3 tracking-wide">{p.subtitle}</p>
+
+      {p.duration && (
+        <p className="text-xs font-mono text-muted-foreground/40 mb-3">
+          <Clock size={10} className="inline mr-1" />{p.duration}
+        </p>
+      )}
+
+      <p className={`text-muted-foreground leading-relaxed flex-1 mb-4 ${compact ? "text-xs" : "text-sm"}`}>
+        {p.summary}
+      </p>
+
+      <p className="text-xs text-muted-foreground/40 font-mono mb-4 border-l border-border pl-2">
+        {p.audience}
+      </p>
+
+      {p.status === "ativo" && p.href ? (
+        <Link to={p.href} className="tactical-button flex items-center justify-center gap-2">
+          Iniciar Protocolo <ArrowRight size={14} />
+        </Link>
+      ) : p.status === "preview" ? (
+        <div className="flex items-center gap-2 text-xs text-muted-foreground/50 font-mono pt-2 border-t border-border">
+          <Lock size={12} />
+          Em breve — entre na lista para acesso antecipado
+        </div>
+      ) : (
+        <div className="flex items-center gap-2 text-xs text-muted-foreground/30 font-mono pt-2 border-t border-border">
+          <Clock size={12} />
+          Em desenvolvimento
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Protocolos = () => {
   return (
     <Layout>
 
-      {/* ── HEADER ───────────────────────────────────────── */}
-      <section className="py-16 md:py-24">
+      {/* ── HERO ─────────────────────────────────────────── */}
+      <section className="hero-gradient py-24 md:py-32">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <ShieldIcon size="lg" className="mx-auto mb-6" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-6">
-              Protocolos de Proteção
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="h-px w-12 bg-primary" />
+              <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Protocolos</span>
+            </div>
+            <h1 className="font-display text-foreground leading-tight mb-6">
+              A fissura não pede licença.{" "}
+              <em className="text-primary not-italic">O protocolo também não.</em>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Não são dicas. São missões táticas com início, meio e fim.
-              Cada protocolo tem propósito, público e duração definidos —
-              feitos para serem executados, não negociados.
+            <p className="text-muted-foreground text-lg max-w-xl leading-relaxed">
+              Cada protocolo existe para um momento específico.
+              Não são conteúdos de inspiração — são estruturas para usar quando o momento chegar.
             </p>
           </div>
-
-          {/* Navegação interna */}
-          <div className="max-w-3xl mx-auto mt-10 grid grid-cols-3 gap-3 text-center">
-            <a href="#principal" className="tactical-card py-4 hover:border-primary/50 transition-colors">
-              <p className="text-xs uppercase tracking-widest text-primary mb-1">01</p>
-              <p className="text-sm text-foreground font-display">Principal</p>
-            </a>
-            <a href="#complementares" className="tactical-card py-4 hover:border-primary/50 transition-colors">
-              <p className="text-xs uppercase tracking-widest text-primary mb-1">02</p>
-              <p className="text-sm text-foreground font-display">Complementares</p>
-            </a>
-            <a href="#desenvolvimento" className="tactical-card py-4 hover:border-primary/50 transition-colors">
-              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">03</p>
-              <p className="text-sm text-foreground font-display">Em desenvolvimento</p>
-            </a>
-          </div>
         </div>
       </section>
 
-      <div className="section-divider" />
-
-      {/* ── PROTOCOLO PRINCIPAL ──────────────────────────── */}
-      <section id="principal" className="py-16 md:py-24 section-alt">
+      {/* ── PRINCIPAL ────────────────────────────────────── */}
+      <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-
-            <div className="flex items-center gap-3 mb-8">
-              <span className="text-[11px] uppercase tracking-widest text-primary border border-primary/40 rounded-full px-3 py-1">
-                Protocolo principal
-              </span>
-              <div className="h-px flex-1 bg-border" />
-            </div>
-
-            <Link
-              to="/protocolos/escudo-72h"
-              className="tactical-card group block relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-48 h-48 opacity-5 -mr-8 -mt-8 pointer-events-none">
-                <Shield className="w-full h-full text-primary" />
-              </div>
-              <div className="relative grid md:grid-cols-[auto_1fr_auto] gap-6 items-center">
-                <div className="w-16 h-16 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Shield size={30} className="text-primary" />
-                </div>
-                <div>
-                  <h2 className="font-display text-2xl md:text-3xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                    Protocolo Escudo — 72h
-                  </h2>
-                  <p className="text-muted-foreground mb-3">
-                    As primeiras 72 horas sem álcool são o campo minado. Missões diárias,
-                    roteiro hora a hora e bunker noturno para atravessar a fase mais intensa
-                    da vontade sem improvisar.
-                  </p>
-                  <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1.5">
-                      <Clock size={12} className="text-primary" /> 72 horas
-                    </span>
-                    <span>
-                      <strong className="text-foreground">Para quem:</strong> está parando de
-                      beber agora ou recomeçando após recaída
-                    </span>
-                    <span>
-                      <strong className="text-foreground">Quando usar:</strong> do dia 1 ao dia 3
-                    </span>
-                  </div>
-                </div>
-                <ArrowRight
-                  size={24}
-                  className="text-primary justify-self-end group-hover:translate-x-1 transition-transform flex-shrink-0"
-                />
-              </div>
-            </Link>
-
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-8 bg-primary" />
+            <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Protocolo Principal</span>
+          </div>
+          <p className="text-muted-foreground text-sm mb-10 ml-11">
+            O núcleo do método. O primeiro a usar em qualquer crise.
+          </p>
+          <div className="max-w-2xl">
+            {principal.map((p) => <ProtoCard key={p.id} p={p} />)}
           </div>
         </div>
       </section>
-
-      <div className="section-divider" />
 
       {/* ── COMPLEMENTARES ───────────────────────────────── */}
-      <section id="complementares" className="py-16 md:py-24">
+      <section className="py-24 section-alt">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-
-            <div className="flex items-center gap-3 mb-8">
-              <span className="text-[11px] uppercase tracking-widest text-primary border border-primary/40 rounded-full px-3 py-1">
-                Protocolos complementares
-              </span>
-              <div className="h-px flex-1 bg-border" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-              {/* Perímetro 24h — tem página */}
-              <Link to="/protocolos/perimetro-24h" className="tactical-card group block">
-                <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center mb-4">
-                  <Users size={22} className="text-primary" />
-                </div>
-                <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                  Protocolo Perímetro — 24h
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Para quem vive com alguém que bebe. Proteger a casa sem declarar guerra:
-                  limites claros, frases prontas, bunker pessoal para as próximas 24 horas.
-                </p>
-                <div className="text-xs text-muted-foreground space-y-1 mb-4">
-                  <p><strong className="text-foreground">Para quem:</strong> familiares e cônjuges</p>
-                  <p><strong className="text-foreground">Quando usar:</strong> primeiras 24h de organização da casa</p>
-                </div>
-                <span className="inline-flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
-                  Ver protocolo <ArrowRight size={16} />
-                </span>
-              </Link>
-
-              {/* Primeiros 30 Dias — teaser, sem página ainda */}
-              <div className="tactical-card opacity-90">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center">
-                    <Repeat size={22} className="text-primary" />
-                  </div>
-                  <span className="text-[10px] uppercase tracking-widest border border-border bg-secondary text-muted-foreground rounded-full px-2.5 py-1">
-                    Em breve
-                  </span>
-                </div>
-                <h3 className="font-display text-xl text-foreground mb-2">
-                  Protocolo Primeiros 30 Dias
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Estrutura semana a semana para quem passou as 72h iniciais e precisa sustentar
-                  o ritmo. Cada semana tem foco, missão e indicadores de progresso.
-                </p>
-                <div className="text-xs text-muted-foreground space-y-1">
-                  <p><strong className="text-foreground">Para quem:</strong> quem passou as 72h e está construindo consistência</p>
-                  <p><strong className="text-foreground">Quando usar:</strong> do dia 4 ao dia 30</p>
-                </div>
-              </div>
-
-              {/* Segurança e Respeito 24h */}
-              <div className="tactical-card opacity-90">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center">
-                    <Heart size={22} className="text-primary" />
-                  </div>
-                  <span className="text-[10px] uppercase tracking-widest border border-border bg-secondary text-muted-foreground rounded-full px-2.5 py-1">
-                    Em breve
-                  </span>
-                </div>
-                <h3 className="font-display text-xl text-foreground mb-2">
-                  Protocolo Segurança e Respeito — 24h
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Checklist de fechamento do dia para quem está em processo: dormir, comer,
-                  hidratar, manter o perímetro. Simples e executável todos os dias.
-                </p>
-                <div className="text-xs text-muted-foreground space-y-1">
-                  <p><strong className="text-foreground">Para quem:</strong> quem está em processo diário de sobriedade</p>
-                  <p><strong className="text-foreground">Quando usar:</strong> diariamente, todo fechamento do dia</p>
-                </div>
-              </div>
-
-              {/* Bunker Noturno */}
-              <div className="tactical-card opacity-90">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center">
-                    <Moon size={22} className="text-primary" />
-                  </div>
-                  <span className="text-[10px] uppercase tracking-widest border border-border bg-secondary text-muted-foreground rounded-full px-2.5 py-1">
-                    Em breve
-                  </span>
-                </div>
-                <h3 className="font-display text-xl text-foreground mb-2">
-                  Protocolo Bunker Noturno
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Rotina de fechamento do dia para travar a recaída noturna. Chá, leitura,
-                  ritual de luz baixa e a regra do "não decidir nada depois das 22h".
-                </p>
-                <div className="text-xs text-muted-foreground space-y-1">
-                  <p><strong className="text-foreground">Para quem:</strong> quem recai à noite ou tem gatilhos noturnos fortes</p>
-                  <p><strong className="text-foreground">Quando usar:</strong> todas as noites dos primeiros 30 dias</p>
-                </div>
-              </div>
-
-            </div>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-8 bg-primary" />
+            <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Protocolos Complementares</span>
+          </div>
+          <p className="text-muted-foreground text-sm mb-10 ml-11">
+            Situações específicas. Cada um cobre um momento diferente.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl">
+            {complementares.map((p) => <ProtoCard key={p.id} p={p} />)}
           </div>
         </div>
       </section>
-
-      <div className="section-divider" />
 
       {/* ── EM DESENVOLVIMENTO ───────────────────────────── */}
-      <section id="desenvolvimento" className="py-16 md:py-24 section-alt">
+      <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-[11px] uppercase tracking-widest text-muted-foreground border border-border rounded-full px-3 py-1 inline-flex items-center gap-2">
-                <Construction size={12} /> Em desenvolvimento
-              </span>
-              <div className="h-px flex-1 bg-border" />
-            </div>
-            <p className="text-muted-foreground mb-10 max-w-2xl text-sm">
-              Próximos protocolos do método. Não anunciamos data — anunciamos quando está
-              pronto e testado. Entre na lista do Protocolo Semanal para ser avisado primeiro.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  icon: RefreshCw,
-                  title: "Reentrada Social — 7 dias",
-                  desc: "Voltar a eventos sociais sem álcool. Frases prontas, regra de saída e plano B para quando a pressão aparecer.",
-                  forWho: "quem evita eventos por medo de recaída",
-                  duration: "7 dias",
-                },
-                {
-                  icon: Flame,
-                  title: "Recaída — Primeira Hora",
-                  desc: "O que fazer na primeira hora depois de uma recaída para impedir o efeito dominó. Sem punição, sem espiral.",
-                  forWho: "quem recaiu e precisa retomar agora, não amanhã",
-                  duration: "1 hora",
-                },
-                {
-                  icon: Home,
-                  title: "Família Estendida",
-                  desc: "Para irmãos, pais e filhos adultos: limites e proteção sem assumir o papel de cuidador ou terapeuta da família.",
-                  forWho: "família estendida que sustenta a crise",
-                  duration: "30 dias",
-                },
-                {
-                  icon: BookOpen,
-                  title: "Protocolo Insight — Hábito",
-                  desc: "Mapeamento de padrão de hábito: gatilho → rotina → recompensa. Identificar o loop para reescrever a resposta.",
-                  forWho: "quem quer entender o padrão antes de combatê-lo",
-                  duration: "7 dias",
-                },
-                {
-                  icon: Shield,
-                  title: "Protocolo do Cônjuge",
-                  desc: "Para parceiros em relacionamento com alguém em processo: comunicação sem ultimato, suporte sem codependência.",
-                  forWho: "cônjuges e companheiros de quem está em processo",
-                  duration: "30 dias",
-                },
-                {
-                  icon: Heart,
-                  title: "Protocolo para Familiares",
-                  desc: "Manual completo para pais, filhos e irmãos: o que fazer, o que não fazer, como proteger a relação sem assumir a cura.",
-                  forWho: "família que quer ajudar sem se destruir",
-                  duration: "Referência permanente",
-                },
-              ].map((p) => (
-                <div key={p.title} className="tactical-card opacity-80">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-10 h-10 rounded bg-secondary flex items-center justify-center">
-                      <p.icon size={18} className="text-muted-foreground" />
-                    </div>
-                    <span className="text-[10px] uppercase tracking-widest border border-border bg-secondary text-muted-foreground rounded-full px-2 py-0.5">
-                      Em breve
-                    </span>
-                  </div>
-                  <h3 className="font-display text-lg text-foreground mb-2">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{p.desc}</p>
-                  <div className="text-xs text-muted-foreground space-y-1">
-                    <p><strong className="text-foreground">Para quem:</strong> {p.forWho}</p>
-                    <p><strong className="text-foreground">Duração:</strong> {p.duration}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-8 bg-primary" />
+            <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Em Desenvolvimento</span>
+          </div>
+          <p className="text-muted-foreground text-sm mb-10 ml-11">
+            Os próximos a ser lançados. Entre na lista para acesso assim que abrirem.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {emDesenvolvimento.map((p) => <ProtoCard key={p.id} p={p} compact />)}
           </div>
         </div>
       </section>
 
-      <div className="section-divider" />
-
-      {/* ── AVISO ────────────────────────────────────────── */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="alert-box flex items-start gap-3">
-              <AlertTriangle size={20} className="text-destructive flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground">Aviso importante:</strong> Os protocolos
-                são orientações baseadas em experiência prática e método estruturado.{" "}
-                <strong>
-                  Não substituem acompanhamento médico, psicológico ou psiquiátrico.
-                </strong>{" "}
-                Em caso de abstinência intensa — tremores, suor excessivo, confusão ou
-                alucinações — procure atendimento médico imediatamente. Ligue 192 (SAMU)
-                ou vá ao pronto-socorro.
-              </p>
-            </div>
+      {/* ── DISCLAIMER ───────────────────────────────────── */}
+      <section className="py-12 section-alt">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <div className="alert-box flex items-start gap-3">
+            <AlertTriangle size={15} className="text-destructive mt-0.5 flex-shrink-0" />
+            <p className="text-xs text-muted-foreground/70 leading-relaxed">
+              Protocolos são estrutura de suporte — não substituem psiquiatras, psicólogos ou médicos.
+              Em emergência médica, ligue 192 (SAMU) ou procure a UPA mais próxima.
+            </p>
           </div>
         </div>
       </section>
