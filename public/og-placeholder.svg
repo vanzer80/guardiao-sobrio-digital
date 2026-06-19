@@ -1,0 +1,6 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#111111"/>
+  <line x1="0" y1="315" x2="60" y2="315" stroke="#C8922A" stroke-width="2"/>
+  <text x="80" y="290" font-family="Georgia, serif" font-size="64" font-weight="600" fill="#F5F0E8" letter-spacing="-1">O Guardião Sóbrio</text>
+  <text x="80" y="350" font-family="monospace" font-size="18" fill="#C8922A" letter-spacing="4">PROTOCOLO · ESTRUTURA · SOBRIEDADE</text>
+</svg>

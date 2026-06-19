@@ -122,6 +122,23 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ── ATMOSFERA 2AM ────────────────────────────────── */}
+      <section className="py-24 bg-[#0a0a0a] border-y border-border/50">
+        <div className="container mx-auto px-4 max-w-3xl text-center">
+          <p className="font-mono text-xs tracking-[0.3em] text-primary/50 uppercase mb-6">
+            Às 2 da manhã
+          </p>
+          <p className="font-display text-[clamp(1.8rem,4vw,3rem)] text-foreground/80 leading-[1.2] tracking-[-0.01em]">
+            A fissura não escolhe horário.
+            Não escolhe dia.
+            Não escolhe se você está pronto.
+          </p>
+          <p className="text-muted-foreground text-base mt-6 max-w-xl mx-auto">
+            O protocolo tampouco.
+          </p>
+        </div>
+      </section>
+
       {/* ── QUAL É SUA SITUAÇÃO ───────────────────────────── */}
       <section className="py-24 section-alt">
         <div className="container mx-auto px-4">

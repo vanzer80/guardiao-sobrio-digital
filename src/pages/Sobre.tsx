@@ -17,20 +17,26 @@ const Sobre = () => {
     <Layout>
 
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="hero-gradient py-24 md:py-32">
-        <div className="container mx-auto px-4">
+      <section className="relative min-h-[70vh] flex items-end overflow-hidden">
+        <div className="absolute inset-0 bg-[#0d0d0d]">
+          <img
+            src="/luis-vanzer.png"
+            alt="Luis Vanzer — criador de O Guardião Sóbrio"
+            className="w-full h-full object-cover object-top opacity-40 grayscale"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/60 to-transparent" />
+        </div>
+        <div className="relative z-10 container mx-auto px-4 pb-16 md:pb-24">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-12 bg-primary" />
-              <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">
-                Sobre
-              </span>
+              <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Sobre</span>
             </div>
-            <h1 className="font-display text-foreground leading-tight mb-6">
-              Isso não veio{" "}
+            <h1 className="font-display text-[clamp(3rem,8vw,6rem)] leading-[0.95] tracking-[-0.02em] text-foreground mb-6">
+              Isso não veio<br />
               <em className="text-primary not-italic">de um manual.</em>
             </h1>
-            <p className="text-muted-foreground text-lg max-w-xl leading-relaxed">
+            <p className="text-muted-foreground text-lg max-w-lg leading-relaxed">
               Luis Vanzer. Criador de O Guardião Sóbrio.
               Não é terapeuta. Não é coach. Não é religioso.
               Está no processo — e fala a partir daí.

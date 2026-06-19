@@ -174,7 +174,10 @@ const ProdutoCard = ({ p }: { p: Produto }) => {
   };
 
   return (
-    <div className="tactical-card flex flex-col p-7">
+    <div className="tactical-card relative overflow-hidden flex flex-col p-7">
+      <span className="font-mono text-[3.5rem] leading-none text-primary/10 absolute top-4 right-5 pointer-events-none select-none font-bold">
+        {p.num}
+      </span>
       {/* header */}
       <div className="flex items-start justify-between mb-6">
         <div>

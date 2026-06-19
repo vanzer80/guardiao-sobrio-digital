@@ -2,7 +2,7 @@
 
 ## Status geral
 
-![Progresso](https://img.shields.io/badge/progresso-18%2F57%20tarefas-C8922A?style=flat-square&labelColor=111111)
+![Progresso](https://img.shields.io/badge/progresso-22%2F57%20tarefas-C8922A?style=flat-square&labelColor=111111)
 
 ---
 
@@ -34,13 +34,13 @@
 
 ---
 
-## 🔲 Fase 2 — Fotografia e Drama Visual
+## ✅ Fase 2 — Fotografia e Drama Visual (concluído)
 
-- [ ] Foto de Luis Vanzer (P&B) no hero da página Sobre — full-bleed com texto sobreposto
-- [ ] Hero da Index: imagem de fundo atmosférica (cidade à noite / corredor escuro / fumaça) com heading sobre ela
-- [ ] Seção "às 2 da manhã" na Index: fundo #0d0d0d, frase única em âmbar, sem mais nada
-- [ ] Cards de produto: substituir ícones Lucide por números editoriais grandes
-- [ ] Seção Sobre: segunda foto ou detalhe visual para quebrar o bloco de texto
+- [x] Foto de Luis Vanzer (P&B) no hero da página Sobre — full-bleed com texto sobreposto
+- [x] Hero da Index: imagem de fundo atmosférica (cidade à noite / corredor escuro / fumaça) com heading sobre ela
+- [x] Seção "às 2 da manhã" na Index: fundo #0d0d0d, frase única em âmbar, sem mais nada
+- [x] Cards de produto: substituir ícones Lucide por números editoriais grandes
+- [x] Seção Sobre: segunda foto ou detalhe visual para quebrar o bloco de texto
 
 ---
 
