@@ -16,34 +16,41 @@ const Sobre = () => {
   return (
     <Layout>
 
-      {/* HERO COM FOTO */}
-      <section className="relative min-h-[70vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#0d0d0d]">
-          <img
-            src="/luis-vanzer.png"
-            alt="Luis Vanzer — criador de O Guardião Sóbrio"
-            className="w-full h-full object-cover object-top opacity-40 grayscale"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/60 to-transparent" />
-        </div>
-        <div className="relative z-10 container mx-auto px-4 pb-16 md:pb-24">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-12 bg-primary" />
-              <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Sobre</span>
+      {/* HERO COM FOTO — retrato emoldurado (split) */}
+      <section className="relative bg-[#0d0d0d] overflow-hidden border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center min-h-[80vh] py-24">
+            {/* TEXTO */}
+            <div className="lg:col-span-7 order-2 lg:order-1">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-12 bg-primary" />
+                <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Sobre</span>
+              </div>
+              <h1
+                className="font-display text-foreground mb-6"
+                style={{ fontSize: 'clamp(3rem,7vw,5.5rem)', lineHeight: '0.95', letterSpacing: '-0.02em' }}
+              >
+                Isso não veio<br />
+                <em className="text-primary not-italic">de um manual.</em>
+              </h1>
+              <p className="text-muted-foreground text-lg max-w-lg leading-relaxed">
+                Luis Vanzer. Criador de O Guardião Sóbrio.
+                Não é terapeuta. Não é coach. Não é religioso.
+                Está no processo — e fala a partir daí.
+              </p>
             </div>
-            <h1
-              className="font-display text-foreground mb-6"
-              style={{ fontSize: 'clamp(3rem,8vw,6rem)', lineHeight: '0.95', letterSpacing: '-0.02em' }}
-            >
-              Isso não veio<br />
-              <em className="text-primary not-italic">de um manual.</em>
-            </h1>
-            <p className="text-muted-foreground text-lg max-w-lg leading-relaxed">
-              Luis Vanzer. Criador de O Guardião Sóbrio.
-              Não é terapeuta. Não é coach. Não é religioso.
-              Está no processo — e fala a partir daí.
-            </p>
+            {/* RETRATO */}
+            <div className="lg:col-span-5 order-1 lg:order-2">
+              <div className="relative aspect-[4/5] w-full max-w-sm mx-auto lg:ml-auto border border-primary/15">
+                <img
+                  src="/luis-vanzer.png"
+                  alt="Luis Vanzer — criador de O Guardião Sóbrio"
+                  className="absolute inset-0 w-full h-full object-cover object-[center_20%] grayscale"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d]/55 via-transparent to-transparent" />
+                <div className="absolute -bottom-px -left-px w-10 h-10 border-l-2 border-b-2 border-primary/40" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
