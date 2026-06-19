@@ -36,24 +36,17 @@ const pathCards = [
 ];
 
 const pillars = [
-  {
-    word: "Espelho",
-    description: "Ver o que está acontecendo de verdade, sem filtro. O diagnóstico honesto é o único ponto de partida válido.",
-  },
-  {
-    word: "Tática",
-    description: "Protocolo antes de decisão. Quando o momento crítico chega, você não improvisa — executa.",
-  },
-  {
-    word: "Escudo",
-    description: "Construir um perímetro que aguente a pressão. Ambiental, relacional, emocional.",
-  },
+  { word: "Espelho", num: "01", description: "Ver o que está acontecendo de verdade, sem filtro. O diagnóstico honesto é o único ponto de partida válido." },
+  { word: "Tática",  num: "02", description: "Protocolo antes de decisão. Quando o momento crítico chega, você não improvisa — executa." },
+  { word: "Escudo",  num: "03", description: "Construir um perímetro que aguente a pressão. Ambiental, relacional, emocional." },
 ];
 
 const Index = () => {
   const recentPosts = getRecentPosts(3);
   const cardsRef = useReveal(0.1);
   const quoteRef = useReveal(0.2);
+  const pillarsRef = useReveal(0.1);
+  const momentosRef = useReveal(0.1);
 
   return (
     <Layout>
@@ -202,20 +195,17 @@ const Index = () => {
             <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">O método</span>
           </div>
 
-          <div className="mb-16">
+          <div ref={pillarsRef as RefObject<HTMLDivElement>} className="mb-16">
             {pillars.map((pillar, i) => (
-              <div key={pillar.word} className="flex items-start gap-8 md:gap-16 py-10 border-t border-border group">
-                <span className="font-mono text-xs text-muted-foreground/50 mt-3 w-8 flex-shrink-0">
-                  0{i + 1}
-                </span>
-                <div className="flex-1 flex flex-col md:flex-row md:items-center gap-4 md:gap-16">
-                  <h3 className="font-display text-[clamp(3rem,8vw,6rem)] tracking-[-0.02em] text-foreground leading-none flex-shrink-0">
-                    {pillar.word}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed max-w-lg">
-                    {pillar.description}
-                  </p>
-                </div>
+              <div
+                key={pillar.word}
+                className={`flex flex-col md:flex-row md:items-baseline gap-4 md:gap-16 py-8 border-t border-border gs-reveal gs-reveal-delay-${i + 1}`}
+              >
+                <span className="font-mono text-xs text-muted-foreground/50 md:w-8 flex-shrink-0">{pillar.num}</span>
+                <h3 className="font-display text-[clamp(3rem,8vw,6rem)] leading-[0.95] tracking-[-0.02em] text-foreground md:w-64 flex-shrink-0">
+                  {pillar.word}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed max-w-lg">{pillar.description}</p>
               </div>
             ))}
           </div>
@@ -282,7 +272,7 @@ const Index = () => {
       </section>
 
       {/* ── MAPA DE MOMENTOS CRÍTICOS ─────────────────────── */}
-      <section className="py-24 section-alt">
+      <section ref={momentosRef} className="py-24 section-alt gs-reveal">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-3 mb-14">
             <div className="h-px w-8 bg-primary" />

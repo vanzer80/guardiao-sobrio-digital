@@ -81,6 +81,14 @@ export default {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        "gs-cursor-blink": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+        "gs-fade-up": {
+          from: { opacity: "0", transform: "translateY(24px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -104,6 +112,8 @@ export default {
       },
       animation: {
         "gs-marquee": "gs-marquee 30s linear infinite",
+        "gs-cursor-blink": "gs-cursor-blink 1s step-end infinite",
+        "gs-fade-up": "gs-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out forwards",
