@@ -9,15 +9,48 @@ import { useReveal } from "@/hooks/useReveal";
 import { ArrowRight, Shield, Zap, Lock } from "lucide-react";
 
 const pathCards = [
-  { id: "parando", label: "01", title: "Estou parando agora", description: "Primeiras 72h. Vontade intensa, abstinência física. Existe um protocolo para cada hora desse período.", href: "/trilhas/recuperacao", icon: Shield },
-  { id: "vontade", label: "02", title: "A fissura chegou agora", description: "Não é fraqueza. É uma onda com duração previsível. O protocolo existe exatamente para esse momento.", href: "/trilhas/vontade-hoje", icon: Zap },
-  { id: "familia", label: "03", title: "Protejo alguém em casa", description: "Família precisa de estratégia própria. Não de culpa, não de espera. De estrutura.", href: "/trilhas/familiar", icon: Lock },
+  {
+    id: "parando",
+    label: "01",
+    title: "Estou parando agora",
+    description: "Primeiras 72h. Vontade intensa, abstinência física. Existe um protocolo para cada hora desse período.",
+    href: "/trilhas/recuperacao",
+    icon: Shield,
+  },
+  {
+    id: "vontade",
+    label: "02",
+    title: "A fissura chegou agora",
+    description: "Não é fraqueza. É uma onda com duração previsível. O protocolo existe exatamente para esse momento.",
+    href: "/trilhas/vontade-hoje",
+    icon: Zap,
+  },
+  {
+    id: "familia",
+    label: "03",
+    title: "Protejo alguém em casa",
+    description: "Família precisa de estratégia própria. Não de culpa, não de espera. De estrutura.",
+    href: "/trilhas/familiar",
+    icon: Lock,
+  },
 ];
 
 const pillars = [
-  { word: "Espelho", num: "01", description: "Ver o que está acontecendo de verdade, sem filtro. O diagnóstico honesto é o único ponto de partida válido." },
-  { word: "Tática",  num: "02", description: "Protocolo antes de decisão. Quando o momento crítico chega, você não improvisa — executa." },
-  { word: "Escudo",  num: "03", description: "Construir um perímetro que aguente a pressão. Ambiental, relacional, emocional." },
+  {
+    num: "01",
+    word: "Espelho",
+    description: "Ver o que está acontecendo de verdade, sem filtro. O diagnóstico honesto é o único ponto de partida válido.",
+  },
+  {
+    num: "02",
+    word: "Tática",
+    description: "Protocolo antes de decisão. Quando o momento crítico chega, você não improvisa — executa.",
+  },
+  {
+    num: "03",
+    word: "Escudo",
+    description: "Construir um perímetro que aguente a pressão. Ambiental, relacional, emocional.",
+  },
 ];
 
 const Index = () => {
@@ -30,7 +63,7 @@ const Index = () => {
   return (
     <Layout>
 
-      {/* ── HERO ─────────────────────────────────────────── */}
+      {/* HERO */}
       <section className="hero-gradient relative overflow-hidden min-h-[92vh] flex items-center">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
@@ -39,7 +72,10 @@ const Index = () => {
               <div className="h-px w-12 bg-primary" />
               <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">O Guardião Sóbrio</span>
             </div>
-            <h1 className="font-display text-[clamp(3.5rem,9vw,7.5rem)] leading-[0.95] tracking-[-0.02em] text-foreground mb-6">
+            <h1
+              className="font-display text-foreground mb-6"
+              style={{ fontSize: 'clamp(3.5rem,9vw,7.5rem)', lineHeight: '0.95', letterSpacing: '-0.02em' }}
+            >
               Você não precisa ser forte.{" "}
               <em className="text-primary not-italic">Precisa de estrutura.</em>
             </h1>
@@ -51,8 +87,12 @@ const Index = () => {
               Este conteúdo não substitui psiquiatras, psicólogos ou médicos. Em emergência médica, ligue 192 (SAMU).
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link to="/comece-aqui" className="tactical-button flex items-center justify-center gap-2">Iniciar Protocolo <ArrowRight size={16} /></Link>
-              <Link to="/protocolos" className="tactical-button-outline flex items-center justify-center gap-2">Ver os Protocolos</Link>
+              <Link to="/comece-aqui" className="tactical-button flex items-center justify-center gap-2">
+                Iniciar Protocolo <ArrowRight size={16} />
+              </Link>
+              <Link to="/protocolos" className="tactical-button-outline flex items-center justify-center gap-2">
+                Ver os Protocolos
+              </Link>
             </div>
           </div>
         </div>
@@ -61,32 +101,44 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── MARQUEE ──────────────────────────────────────── */}
+      {/* MARQUEE */}
       <MarqueeStrip />
 
-      {/* ── ÂNCORAS TÁTICAS ──────────────────────────────── */}
+      {/* ÂNCORAS TÁTICAS */}
       <section className="py-12 border-y border-border">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
-            <p className="text-sm text-muted-foreground font-mono tracking-wide"><span className="text-primary font-semibold block text-base mb-1">A fissura não pede licença.</span>O protocolo também não.</p>
-            <p className="text-sm text-muted-foreground font-mono tracking-wide"><span className="text-primary font-semibold block text-base mb-1">72 horas.</span>Esse é o período mais difícil. Temos um mapa para cada hora.</p>
-            <p className="text-sm text-muted-foreground font-mono tracking-wide"><span className="text-primary font-semibold block text-base mb-1">Guardiões não prometem cura.</span>Entregam estrutura.</p>
+            <p className="text-sm text-muted-foreground font-mono tracking-wide">
+              <span className="text-primary font-semibold block text-base mb-1">A fissura não pede licença.</span>
+              O protocolo também não.
+            </p>
+            <p className="text-sm text-muted-foreground font-mono tracking-wide">
+              <span className="text-primary font-semibold block text-base mb-1">72 horas.</span>
+              Esse é o período mais difícil. Temos um mapa para cada hora.
+            </p>
+            <p className="text-sm text-muted-foreground font-mono tracking-wide">
+              <span className="text-primary font-semibold block text-base mb-1">Guardiões não prometem cura.</span>
+              Entregam estrutura.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ── ÀS 2 DA MANHÃ ────────────────────────────────── */}
+      {/* ÀS 2 DA MANHÃ */}
       <section className="py-24 bg-[#0a0a0a] border-y border-border/50">
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <p className="font-mono text-xs tracking-[0.3em] text-primary/50 uppercase mb-6">Às 2 da manhã</p>
-          <p className="font-display text-[clamp(1.8rem,4vw,3rem)] text-foreground/80 leading-[1.2] tracking-[-0.01em]">
+          <p
+            className="font-display text-foreground/80 leading-[1.2] tracking-[-0.01em]"
+            style={{ fontSize: 'clamp(1.8rem,4vw,3rem)' }}
+          >
             A fissura não escolhe horário. Não escolhe dia. Não escolhe se você está pronto.
           </p>
           <p className="text-muted-foreground text-base mt-6 max-w-xl mx-auto">O protocolo tampouco.</p>
         </div>
       </section>
 
-      {/* ── QUAL É SUA SITUAÇÃO ──────────────────────────── */}
+      {/* QUAL É SUA SITUAÇÃO */}
       <section className="py-24 section-alt">
         <div className="container mx-auto px-4">
           <div className="mb-14">
@@ -99,7 +151,11 @@ const Index = () => {
           </div>
           <div ref={cardsRef as RefObject<HTMLDivElement>} className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {pathCards.map((card, i) => (
-              <Link key={card.id} to={card.href} className={`tactical-card group block gs-reveal gs-reveal-delay-${i + 1}`}>
+              <Link
+                key={card.id}
+                to={card.href}
+                className={`tactical-card group block gs-reveal gs-reveal-delay-${i + 1}`}
+              >
                 <div className="flex items-start justify-between mb-6">
                   <span className="font-mono text-xs text-primary/60">{card.label}</span>
                   <card.icon size={18} className="text-primary/40 group-hover:text-primary transition-colors" />
@@ -115,7 +171,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── TRÊS PILARES ─────────────────────────────────── */}
+      {/* TRÊS PILARES */}
       <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-3 mb-14">
@@ -124,25 +180,40 @@ const Index = () => {
           </div>
           <div ref={pillarsRef as RefObject<HTMLDivElement>} className="mb-16">
             {pillars.map((pillar, i) => (
-              <div key={pillar.word} className={`flex flex-col md:flex-row md:items-baseline gap-4 md:gap-16 py-8 border-t border-border gs-reveal gs-reveal-delay-${i + 1}`}>
+              <div
+                key={pillar.word}
+                className={`flex flex-col md:flex-row md:items-baseline gap-4 md:gap-16 py-8 border-t border-border gs-reveal gs-reveal-delay-${i + 1}`}
+              >
                 <span className="font-mono text-xs text-muted-foreground/50 md:w-8 flex-shrink-0">{pillar.num}</span>
-                <h3 className="font-display text-[clamp(3rem,8vw,6rem)] leading-[0.95] tracking-[-0.02em] text-foreground md:w-64 flex-shrink-0">{pillar.word}</h3>
+                <h3
+                  className="font-display text-foreground md:w-64 flex-shrink-0"
+                  style={{ fontSize: 'clamp(3rem,8vw,6rem)', lineHeight: '0.95', letterSpacing: '-0.02em' }}
+                >
+                  {pillar.word}
+                </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed max-w-lg">{pillar.description}</p>
               </div>
             ))}
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link to="/protocolos" className="tactical-button flex items-center justify-center gap-2">Ver todos os Protocolos <ArrowRight size={14} /></Link>
-            <Link to="/produtos" className="tactical-button-outline flex items-center justify-center gap-2">Conhecer os Produtos</Link>
+            <Link to="/protocolos" className="tactical-button flex items-center justify-center gap-2">
+              Ver todos os Protocolos <ArrowRight size={14} />
+            </Link>
+            <Link to="/produtos" className="tactical-button-outline flex items-center justify-center gap-2">
+              Conhecer os Produtos
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── PULL QUOTE ───────────────────────────────────── */}
+      {/* PULL QUOTE */}
       <section ref={quoteRef as RefObject<HTMLElement>} className="py-32 overflow-hidden gs-reveal">
         <div className="container mx-auto px-4">
           <div className="section-divider mb-16" />
-          <p className="font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-[1.0] text-foreground tracking-[-0.015em] max-w-5xl">
+          <p
+            className="font-display text-foreground tracking-[-0.015em] max-w-5xl"
+            style={{ fontSize: 'clamp(2.5rem,7vw,5.5rem)', lineHeight: '1.0' }}
+          >
             <em className="text-primary not-italic">72 horas.</em>{" "}
             É o que separa a fissura do protocolo. Não força de vontade — estrutura.
           </p>
@@ -150,7 +221,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── ÂNCORA HUMANA ────────────────────────────────── */}
+      {/* ÂNCORA HUMANA */}
       <section className="py-24 section-alt">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl">
@@ -167,7 +238,10 @@ const Index = () => {
               </div>
               <div>
                 <p className="text-sm font-medium text-foreground">Luis Vanzer</p>
-                <p className="text-xs text-muted-foreground">Criador de O Guardião Sóbrio. Não é terapeuta, não é coach, não é religioso. Está no processo — e fala a partir daí.</p>
+                <p className="text-xs text-muted-foreground">
+                  Criador de O Guardião Sóbrio. Não é terapeuta, não é coach, não é religioso.
+                  Está no processo — e fala a partir daí.
+                </p>
               </div>
             </div>
             <Link to="/sobre" className="text-xs text-primary uppercase tracking-widest hover:underline flex items-center gap-1">
@@ -177,7 +251,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── MAPA DE MOMENTOS CRÍTICOS ────────────────────── */}
+      {/* MAPA DE MOMENTOS CRÍTICOS */}
       <section ref={momentosRef as RefObject<HTMLElement>} className="py-24 gs-reveal">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-3 mb-14">
@@ -200,7 +274,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── ÚLTIMOS ARTIGOS ──────────────────────────────── */}
+      {/* ÚLTIMOS ARTIGOS */}
       {recentPosts.length > 0 && (
         <section className="py-24 section-alt">
           <div className="container mx-auto px-4">
@@ -233,7 +307,7 @@ const Index = () => {
         </section>
       )}
 
-      {/* ── NEWSLETTER ───────────────────────────────────── */}
+      {/* NEWSLETTER */}
       <section className="py-24 section-alt">
         <div className="container mx-auto px-4 max-w-2xl">
           <div className="flex items-center gap-3 mb-6">
@@ -241,7 +315,10 @@ const Index = () => {
             <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">Protocolo semanal</span>
           </div>
           <h2 className="font-display text-foreground mb-4">Um protocolo por semana. Direto na sua caixa.</h2>
-          <p className="text-muted-foreground mb-8">Sem spam. Sem teatro.<br />Uma missão tática por semana para quem está construindo sobriedade no mundo real.</p>
+          <p className="text-muted-foreground mb-8">
+            Sem spam. Sem teatro.<br />
+            Uma missão tática por semana para quem está construindo sobriedade no mundo real.
+          </p>
           <NewsletterCapture
             ctaLabel="Quero a Estrutura"
             trust="Sem cobrança. Você sai quando quiser."
