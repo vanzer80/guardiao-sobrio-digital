@@ -1,9 +1,39 @@
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { ShieldIcon } from "@/components/ShieldIcon";
 import { ArrowLeft, Clock, Shield, AlertTriangle, Droplets, Thermometer, Footprints, Moon, MessageCircle, Heart, CheckCircle } from "lucide-react";
 
+const TARGET = 72;
+const DURATION_MS = 1400;
+
 const ProtocoloEscudo = () => {
+  const [count, setCount]       = useState(0);
+  const started                 = useRef(false);
+  const counterRef              = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = counterRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const step = DURATION_MS / TARGET;
+          let current = 0;
+          const id = setInterval(() => {
+            current += 1;
+            setCount(current);
+            if (current >= TARGET) clearInterval(id);
+          }, step);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <Layout>
       <section className="py-16 md:py-24">
@@ -17,6 +47,15 @@ const ProtocoloEscudo = () => {
 
             {/* Header */}
             <header className="mb-12">
+              {/* Contador animado 72 */}
+              <div ref={counterRef} aria-hidden className="select-none -mx-4 overflow-hidden">
+                <span
+                  className="font-display text-primary/10 block leading-none"
+                  style={{ fontSize: 'clamp(7rem,22vw,14rem)', letterSpacing: '-0.04em' }}
+                >
+                  {count}
+                </span>
+              </div>
               <div className="flex items-center gap-4 mb-6">
                 <ShieldIcon size="lg" />
                 <div>

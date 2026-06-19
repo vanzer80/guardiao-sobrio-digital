@@ -88,14 +88,13 @@
   .tactical-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0;
-    width: 2px; height: 100%;
+    bottom: 0; left: 0;
+    width: 2px; height: 0%;
     background: hsl(var(--gs-amber));
-    opacity: 0;
-    transition: opacity 0.3s;
+    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .tactical-card:hover { border-color: hsl(var(--gs-amber-dim)); }
-  .tactical-card:hover::before { opacity: 1; }
+  .tactical-card:hover::before { height: 100%; }
 
   .tactical-button {
     background: hsl(var(--gs-amber));
@@ -230,4 +229,14 @@
   .gs-reveal-delay-1 { animation-delay: 0.1s; }
   .gs-reveal-delay-2 { animation-delay: 0.2s; }
   .gs-reveal-delay-3 { animation-delay: 0.35s; }
+
+  .hero-word {
+    opacity: 0;
+    display: inline-block;
+    animation: gs-fade-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
 }

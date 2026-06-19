@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { ShieldIcon } from "./ShieldIcon";
+import { CustomCursor } from "./CustomCursor";
 
 interface LayoutProps {
   children: ReactNode;
@@ -10,6 +11,7 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <CustomCursor />
       <Header />
       
       {/* Shield Watermark */}

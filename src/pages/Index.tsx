@@ -4,6 +4,7 @@ import { Layout } from "@/components/Layout";
 import { ShieldIcon } from "@/components/ShieldIcon";
 import { NewsletterCapture } from "@/components/NewsletterCapture";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
+import { TypewriterText } from "@/components/TypewriterText";
 import { getRecentPosts } from "@/data/blogPosts";
 import { useReveal } from "@/hooks/useReveal";
 import { ArrowRight, Shield, Zap, Lock } from "lucide-react";
@@ -76,12 +77,21 @@ const Index = () => {
               className="font-display text-foreground mb-6"
               style={{ fontSize: 'clamp(3.5rem,9vw,7.5rem)', lineHeight: '0.95', letterSpacing: '-0.02em' }}
             >
-              Você não precisa ser forte.{" "}
-              <em className="text-primary not-italic">Precisa de estrutura.</em>
+              {["Você", "não", "precisa", "ser", "forte."].map((w, i) => (
+                <span key={w} className="hero-word" style={{ animationDelay: `${i * 80}ms` }}>{w}{" "}</span>
+              ))}
+              <em className="text-primary not-italic">
+                {["Precisa", "de", "estrutura."].map((w, i) => (
+                  <span key={w} className="hero-word" style={{ animationDelay: `${(5 + i) * 80}ms` }}>{w}{i < 2 ? " " : ""}</span>
+                ))}
+              </em>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-4 leading-relaxed">
-              O Guardião Sóbrio é um protocolo operacional. Não é motivação. Não é terapia.
-              É o que você faz quando a fissura bate às 2 da manhã e não tem ninguém para ligar.
+              <TypewriterText
+                text="O Guardião Sóbrio é um protocolo operacional. Não é motivação. Não é terapia. É o que você faz quando a fissura bate às 2 da manhã e não tem ninguém para ligar."
+                speed={22}
+                startDelay={750}
+              />
             </p>
             <p className="text-xs text-muted-foreground/50 max-w-md mb-10 border-l-2 border-border pl-3">
               Este conteúdo não substitui psiquiatras, psicólogos ou médicos. Em emergência médica, ligue 192 (SAMU).
