@@ -244,25 +244,46 @@ const Produtos = () => {
         </div>
       </section>
 
-      {/* ── FUNIL ────────────────────────────────────────── */}
-      <section className="py-6 section-alt border-b border-border">
+      {/* ── FUNIL TIMELINE ───────────────────────────────── */}
+      <section className="py-10 section-alt border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0 text-xs font-mono">
-            {[
-              { label: "Entrada", sub: "R$ 47" },
-              { label: "Programas", sub: "R$ 97–197" },
-              { label: "Continuidade", sub: "R$ 39,90–997/mês" },
-            ].map((tier, i) => (
-              <div key={tier.label} className="flex items-center gap-0">
-                <div className="text-center px-6 py-2">
-                  <div className="text-primary/80 tracking-widest uppercase">{tier.label}</div>
-                  <div className="text-muted-foreground/50 text-xs mt-0.5">{tier.sub}</div>
+          <div className="overflow-x-auto pb-2">
+            <div className="flex items-start gap-0 min-w-[640px]">
+              {[
+                {
+                  fase: '01',
+                  label: 'Entrada',
+                  sub: 'R$ 47',
+                  desc: 'Protocolo imediato. Baixo custo, alto impacto.',
+                },
+                {
+                  fase: '02',
+                  label: 'Programas',
+                  sub: 'R$ 97–197',
+                  desc: 'Estrutura de 14 a 30 dias.',
+                },
+                {
+                  fase: '03',
+                  label: 'Continuidade',
+                  sub: 'R$ 39,90–997/mês',
+                  desc: 'Suporte e acompanhamento.',
+                },
+              ].map((item, i) => (
+                <div key={item.fase} className="flex items-start flex-1">
+                  <div className="flex-1 px-6 first:pl-0">
+                    <span className="font-mono text-xs text-primary/50 block mb-2">{item.fase}</span>
+                    <h4 className="font-display text-xl text-foreground mb-1">{item.label}</h4>
+                    <p className="font-mono text-xs text-primary/70 mb-2">{item.sub}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                  {i < 2 && (
+                    <div className="flex flex-col items-center pt-5 flex-shrink-0">
+                      <div className="h-px w-8 bg-primary/30" />
+                    </div>
+                  )}
                 </div>
-                {i < 2 && (
-                  <div className="hidden sm:block text-border text-lg mx-1">›</div>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@
 
 ## Status geral
 
-![Progresso](https://img.shields.io/badge/progresso-28%2F57%20tarefas-C8922A?style=flat-square&labelColor=111111)
+![Progresso](https://img.shields.io/badge/progresso-33%2F57%20tarefas-C8922A?style=flat-square&labelColor=111111)
 
 ---
 
@@ -55,13 +55,13 @@
 
 ---
 
-## 🔲 Fase 4 — Seções Premium de Conversão
+## ✅ Fase 4 — Seções Premium de Conversão (concluído)
 
-- [ ] Novo componente TypewriterHero.tsx: parágrafo que aparece como sendo digitado (typewriter + cursor âmbar piscando)
-- [ ] Timeline horizontal dos produtos: scroll horizontal com as 3 fases do funil (Entrada → Programas → Continuidade)
-- [ ] NewsletterCapture redesenhado: visual de "acesso restrito / terminal" com campo mono e CTA "Solicitar Acesso"
-- [ ] Seção mapa de crises no Footer ou antes dele: infográfico editorial dos 3 momentos (72h / vontade hoje / familiar)
-- [ ] Página AppLanding.tsx (/app): early access real com formulário e lista de espera
+- [x] Novo componente TypewriterHero.tsx: parágrafo que aparece como sendo digitado (typewriter + cursor âmbar piscando)
+- [x] Timeline horizontal dos produtos: scroll horizontal com as 3 fases do funil (Entrada → Programas → Continuidade)
+- [x] NewsletterCapture redesenhado: visual de "acesso restrito / terminal" com campo mono e CTA "Solicitar Acesso"
+- [x] Seção mapa de crises no Footer ou antes dele: infográfico editorial dos 3 momentos (72h / vontade hoje / familiar)
+- [x] Página AppLanding.tsx (/app): early access real com formulário e lista de espera
 
 ---
 

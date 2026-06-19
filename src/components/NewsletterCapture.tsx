@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, CheckCircle, Loader2, ShieldCheck } from "lucide-react";
+import { Loader2, ShieldCheck } from "lucide-react";
 
 interface NewsletterCaptureProps {
   variant?: "inline" | "popup";
@@ -8,9 +8,7 @@ interface NewsletterCaptureProps {
   bullets?: string[];
   ctaLabel?: string;
   successMessage?: string;
-  /** Tag interna para segmentar a inscrição (ex: app-early-access, produto-ebook). */
   tag?: string;
-  /** Microcopy extra abaixo do form (prova social ou tranquilizador). */
   trust?: string;
   compact?: boolean;
 }
@@ -19,8 +17,8 @@ export const NewsletterCapture = ({
   headline,
   description,
   bullets,
-  ctaLabel = "Entrar na lista",
-  successMessage = "Você está dentro. Próximo protocolo chega em até 7 dias.",
+  ctaLabel = "Solicitar Acesso",
+  successMessage = "// Acesso registrado. Protocolo enviado em até 7 dias.",
   tag,
   trust,
   compact = false,
@@ -31,8 +29,6 @@ export const NewsletterCapture = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    // Mock — substituir por integração real (Lovable Cloud) na próxima etapa.
-    // Mantém `tag` para segmentação futura.
     void tag;
     setTimeout(() => {
       setStatus("success");
@@ -59,38 +55,48 @@ export const NewsletterCapture = ({
         </ul>
       )}
 
-      {status === "success" ? (
-        <div className="flex items-center gap-3 text-primary border border-primary/30 bg-primary/5 rounded p-4">
-          <CheckCircle size={20} className="flex-shrink-0" />
-          <span className="text-sm">{successMessage}</span>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-          <div className="relative flex-1">
-            <Mail size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="seu@email.com"
-              required
-              aria-label="Seu e-mail"
-              className="w-full pl-10 pr-4 py-3 bg-secondary border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={status === "loading"}
-            className="tactical-button flex items-center justify-center gap-2 whitespace-nowrap"
-          >
-            {status === "loading" ? <Loader2 size={18} className="animate-spin" /> : ctaLabel}
-          </button>
-        </form>
-      )}
-
-      {trust && status !== "success" && (
-        <p className="text-xs text-muted-foreground">{trust}</p>
-      )}
+      <div className="border border-primary/20 bg-[#0a0a0a] p-8">
+        {status === "success" ? (
+          <p className="font-mono text-sm text-primary leading-relaxed">
+            {successMessage}
+          </p>
+        ) : (
+          <>
+            <p className="text-xs font-mono tracking-[0.2em] text-primary/50 uppercase mb-3">
+              Solicitar acesso — protocolo semanal
+            </p>
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+              <div className="flex-1">
+                <label htmlFor="newsletter-email" className="sr-only">Seu e-mail</label>
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="seu@email.com"
+                  required
+                  className="bg-transparent border-b border-primary/30 border-t-0 border-l-0 border-r-0 rounded-none font-mono text-sm py-3 focus:border-primary focus:outline-none text-foreground placeholder:text-muted-foreground/30 w-full"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="tactical-button flex items-center justify-center gap-2 whitespace-nowrap"
+              >
+                {status === "loading" ? <Loader2 size={18} className="animate-spin" /> : ctaLabel}
+              </button>
+            </form>
+            {status === "error" && (
+              <p className="font-mono text-xs text-destructive/70 mt-3">
+                // Erro ao registrar. Tente novamente.
+              </p>
+            )}
+            {trust && (
+              <p className="text-xs text-muted-foreground/50 mt-4 font-mono">{trust}</p>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

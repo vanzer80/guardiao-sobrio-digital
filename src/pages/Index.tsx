@@ -281,6 +281,48 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ── MAPA DE MOMENTOS CRÍTICOS ─────────────────────── */}
+      <section className="py-24 section-alt">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-3 mb-14">
+            <div className="h-px w-8 bg-primary" />
+            <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">
+              Momentos críticos
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-border">
+            {[
+              {
+                hora: '00:00',
+                title: 'A fissura chega',
+                desc: 'Não escolhe hora. Não pede permissão. O pico dura 20–40 minutos.',
+              },
+              {
+                hora: '72h',
+                title: 'O período mais difícil',
+                desc: 'As primeiras 72 horas são as de maior risco de recaída. Hora a hora.',
+              },
+              {
+                hora: '30d',
+                title: 'A base se forma',
+                desc: 'Após 30 dias com estrutura, o protocolo vira hábito. Não depende de motivação.',
+              },
+            ].map((item) => (
+              <div
+                key={item.hora}
+                className="p-8 border-b md:border-b-0 md:border-r border-border last:border-0"
+              >
+                <span className="font-mono text-[2.5rem] leading-none text-primary/20 block mb-4 font-bold">
+                  {item.hora}
+                </span>
+                <h3 className="font-display text-xl text-foreground mb-3">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── ÚLTIMOS ARTIGOS ───────────────────────────────── */}
       {recentPosts.length > 0 && (
         <section className="py-24">
