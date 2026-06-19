@@ -2,7 +2,7 @@
 
 ## Status geral
 
-![Progresso](https://img.shields.io/badge/progresso-12%2F57%20tarefas-C8922A?style=flat-square&labelColor=111111)
+![Progresso](https://img.shields.io/badge/progresso-18%2F57%20tarefas-C8922A?style=flat-square&labelColor=111111)
 
 ---
 
@@ -23,14 +23,14 @@
 
 ---
 
-## 🔲 Fase 1 — Tipografia e Escala
+## ✅ Fase 1 — Tipografia e Escala (concluído)
 
-- [ ] Hero da Index: heading aumentado para escala cinematográfica (clamp 80px–120px, line-height 0.95)
-- [ ] Pull quote gigante entre pilares e newsletter: "72 horas. É o que separa a fissura do protocolo." em 80px full-width
-- [ ] Seção de pilares redesenhada: cada palavra (Espelho / Tática / Escudo) em fonte poster, não grid de 3 colunas
-- [ ] Números dos protocolos em escala editorial (P-01 em tamanho grande, estilo revista)
-- [ ] Revisão de espaçamento: alternância intencional de seções densas e seções respiráveis
-- [ ] Botões com tamanho mínimo aumentado e letra-spacing mais apertado no texto
+- [x] Hero da Index: heading aumentado para escala cinematográfica (clamp 80px–120px, line-height 0.95)
+- [x] Pull quote gigante entre pilares e newsletter: "72 horas. É o que separa a fissura do protocolo." em 80px full-width
+- [x] Seção de pilares redesenhada: cada palavra (Espelho / Tática / Escudo) em fonte poster, não grid de 3 colunas
+- [x] Números dos protocolos em escala editorial (P-01 em tamanho grande, estilo revista)
+- [x] Revisão de espaçamento: alternância intencional de seções densas e seções respiráveis
+- [x] Botões com tamanho mínimo aumentado e letra-spacing mais apertado no texto
 
 ---
 

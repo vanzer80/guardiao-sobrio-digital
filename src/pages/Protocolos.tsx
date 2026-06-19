@@ -146,6 +146,9 @@ const ProtoCard = ({ p, compact = false }: { p: Protocolo; compact?: boolean }) 
   const cfg = statusConfig[p.status];
   return (
     <div className={`tactical-card ${compact ? "p-5" : "p-7"} flex flex-col`}>
+      <span className={`absolute top-4 right-4 font-mono leading-none text-primary/20 pointer-events-none select-none ${compact ? "text-[3rem]" : "text-[5rem]"}`}>
+        {p.num}
+      </span>
       <div className="flex items-start justify-between mb-4">
         <span className="font-mono text-xs text-muted-foreground/40">{p.num}</span>
         <div className={`inline-flex items-center gap-1.5 text-xs px-2.5 py-1 border font-mono ${cfg.color}`}>

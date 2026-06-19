@@ -97,6 +97,23 @@ const Sobre = () => {
         </div>
       </section>
 
+      {/* ── CITAÇÃO ─────────────────────────────────────── */}
+      <section className="py-24 bg-[#0d0d0d]">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <p className="font-display text-[clamp(2rem,5vw,3.5rem)] text-foreground/90 leading-[1.1] tracking-[-0.01em]">
+            &ldquo;Isso não veio de um manual.
+            Veio de dentro, com estrutura, com honestidade
+            e sem performance.&rdquo;
+          </p>
+          <div className="flex items-center gap-3 mt-8">
+            <div className="h-px w-8 bg-primary" />
+            <span className="text-xs font-mono text-primary/60 tracking-[0.2em] uppercase">
+              Luis Vanzer
+            </span>
+          </div>
+        </div>
+      </section>
+
       {/* ── FUNDAMENTOS ─────────────────────────────────── */}
       <section className="py-24">
         <div className="container mx-auto px-4">

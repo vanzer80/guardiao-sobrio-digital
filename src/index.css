@@ -304,6 +304,12 @@
     color: hsl(var(--gs-steel));
   }
 
+  /* Espaçamento editorial responsivo */
+  .section-breathe {
+    padding-top: clamp(4rem, 10vw, 8rem);
+    padding-bottom: clamp(4rem, 10vw, 8rem);
+  }
+
   /* Display heading override — force Cormorant Garamond */
   .font-display {
     font-family: 'Cormorant Garamond', serif !important;

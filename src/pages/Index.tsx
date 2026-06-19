@@ -67,7 +67,7 @@ const Index = () => {
               </span>
             </div>
 
-            <h1 className="font-display leading-[1.05] tracking-tight text-foreground mb-6">
+            <h1 className="font-display text-[clamp(3.5rem,9vw,7.5rem)] leading-[0.95] tracking-[-0.02em] text-foreground mb-6">
               Você não precisa ser forte.{" "}
               <em className="text-primary not-italic">Precisa de estrutura.</em>
             </h1>
@@ -178,19 +178,20 @@ const Index = () => {
             <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">O método</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
+          <div className="mb-16">
             {pillars.map((pillar, i) => (
-              <div key={pillar.word} className="group">
-                <div className="section-divider mb-8" />
-                <span className="font-mono text-xs text-muted-foreground/50 mb-4 block">
+              <div key={pillar.word} className="flex items-start gap-8 md:gap-16 py-10 border-t border-border group">
+                <span className="font-mono text-xs text-muted-foreground/50 mt-3 w-8 flex-shrink-0">
                   0{i + 1}
                 </span>
-                <h3 className="font-display text-4xl md:text-5xl text-foreground mb-4 tracking-tight">
-                  {pillar.word}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {pillar.description}
-                </p>
+                <div className="flex-1 flex flex-col md:flex-row md:items-center gap-4 md:gap-16">
+                  <h3 className="font-display text-[clamp(3rem,8vw,6rem)] tracking-[-0.02em] text-foreground leading-none flex-shrink-0">
+                    {pillar.word}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed max-w-lg">
+                    {pillar.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -205,6 +206,19 @@ const Index = () => {
             </Link>
           </div>
 
+        </div>
+      </section>
+
+      {/* ── PULL QUOTE ────────────────────────────────────── */}
+      <section className="py-32 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="section-divider mb-16" />
+          <p className="font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-[1.0] text-foreground tracking-[-0.015em] max-w-5xl">
+            <em className="text-primary not-italic">72 horas.</em>{" "}
+            É o que separa a fissura do protocolo.{" "}
+            Não força de vontade — estrutura.
+          </p>
+          <div className="section-divider mt-16" />
         </div>
       </section>
 
