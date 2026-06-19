@@ -1,7 +1,10 @@
+import { type RefObject } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { ShieldIcon } from "@/components/ShieldIcon";
 import { NewsletterCapture } from "@/components/NewsletterCapture";
+import { MarqueeStrip } from "@/components/MarqueeStrip";
+import { useReveal } from "@/hooks/useReveal";
 import { getRecentPosts } from "@/data/blogPosts";
 import { ArrowRight, Shield, Zap, Lock } from "lucide-react";
 
@@ -49,6 +52,8 @@ const pillars = [
 
 const Index = () => {
   const recentPosts = getRecentPosts(3);
+  const cardsRef = useReveal(0.1);
+  const quoteRef = useReveal(0.2);
 
   return (
     <Layout>
@@ -101,6 +106,8 @@ const Index = () => {
           <ShieldIcon size="xl" showLetters={false} />
         </div>
       </section>
+
+      <MarqueeStrip />
 
       {/* ── ÂNCORAS TÁTICAS ───────────────────────────────── */}
       <section className="py-12 border-y border-border">
@@ -156,12 +163,12 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {pathCards.map((card) => (
+          <div ref={cardsRef as RefObject<HTMLDivElement>} className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {pathCards.map((card, i) => (
               <Link
                 key={card.id}
                 to={card.href}
-                className="tactical-card group block"
+                className={`tactical-card group block gs-reveal gs-reveal-delay-${i + 1}`}
               >
                 <div className="flex items-start justify-between mb-6">
                   <span className="font-mono text-xs text-primary/60">{card.label}</span>
@@ -227,7 +234,7 @@ const Index = () => {
       </section>
 
       {/* ── PULL QUOTE ────────────────────────────────────── */}
-      <section className="py-32 overflow-hidden">
+      <section ref={quoteRef} className="py-32 overflow-hidden gs-reveal">
         <div className="container mx-auto px-4">
           <div className="section-divider mb-16" />
           <p className="font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-[1.0] text-foreground tracking-[-0.015em] max-w-5xl">

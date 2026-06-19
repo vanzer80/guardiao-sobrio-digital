@@ -2,7 +2,7 @@
 
 ## Status geral
 
-![Progresso](https://img.shields.io/badge/progresso-22%2F57%20tarefas-C8922A?style=flat-square&labelColor=111111)
+![Progresso](https://img.shields.io/badge/progresso-28%2F57%20tarefas-C8922A?style=flat-square&labelColor=111111)
 
 ---
 
@@ -44,14 +44,14 @@
 
 ---
 
-## 🔲 Fase 3 — Animações e Micro-interações
+## ✅ Fase 3 — Animações e Micro-interações (concluído)
 
-- [ ] Staggered reveal no hero: título entra palavra por palavra (opacity 0→1 + translateY, delay escalonado)
-- [ ] Novo componente MarqueeStrip.tsx: frase em loop horizontal contínuo — "A fissura não pede licença · O protocolo também não · 72 horas · Estrutura, não motivação ·"
-- [ ] Hover nos cards de protocolo: linha âmbar à esquerda cresce de baixo para cima
-- [ ] Contador numérico animado: "72" no Protocolo Escudo conta de 0 a 72 ao entrar na tela
-- [ ] Fade-in com IntersectionObserver em todas as seções principais
-- [ ] Cursor âmbar customizado (desktop only)
+- [x] Staggered reveal no hero: título entra palavra por palavra (opacity 0→1 + translateY, delay escalonado)
+- [x] Novo componente MarqueeStrip.tsx: frase em loop horizontal contínuo — "A fissura não pede licença · O protocolo também não · 72 horas · Estrutura, não motivação ·"
+- [x] Hover nos cards de protocolo: linha âmbar à esquerda cresce de baixo para cima
+- [x] Contador numérico animado: "72" no Protocolo Escudo conta de 0 a 72 ao entrar na tela
+- [x] Fade-in com IntersectionObserver em todas as seções principais
+- [x] Cursor âmbar customizado (desktop only)
 
 ---
 
