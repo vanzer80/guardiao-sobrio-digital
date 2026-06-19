@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     title: "O que fazer nas primeiras 24h quando bate a vontade",
     summary: "A vontade de beber é um tsunami — não se enfrenta, se atravessa. Aqui está o plano tático para as próximas 24 horas.",
     category: "vontade",
-    date: "2024-01-15",
+    date: "2026-06-05",
     readTime: "6 min",
     content: `A vontade de beber não avisa. Ela chega como maré — primeiro suave, depois avassaladora. O erro mais comum? Tentar enfrentar de peito aberto.
 
@@ -66,7 +66,7 @@ Isso não é fraqueza. É tática.`,
     title: "Fechar perímetro: A casa decide a sobriedade",
     summary: "O ambiente não é neutro. Ele joga contra ou a favor. Veja como transformar sua casa em bunker.",
     category: "gatilhos",
-    date: "2024-01-12",
+    date: "2026-05-28",
     readTime: "5 min",
     content: `A primeira batalha da sobriedade não é contra você. É contra o ambiente.
 
@@ -97,7 +97,7 @@ Pense na sua casa como último reduto. Aqui dentro, você está seguro. Lá fora
     title: "A noite é o ponto fraco: Protocolo Bunker",
     summary: "Entre 20h e meia-noite está o maior campo minado. O bunker noturno é sua trincheira.",
     category: "rotina",
-    date: "2024-01-10",
+    date: "2026-05-20",
     readTime: "4 min",
     content: `A estatística é clara: a maioria das recaídas acontece entre 20h e meia-noite. O dia acabou, o cansaço bateu, a solidão pesa. O bar parece uma solução.
 
@@ -128,7 +128,7 @@ Não é infantil. É tático. Quanto menos horas acordado no período perigoso, 
     title: "Honestidade tática: A verdade que não destrói",
     summary: "Mentir corrói. Mas verdade jogada sem estratégia também machuca. O caminho é a honestidade tática.",
     category: "honestidade",
-    date: "2024-01-08",
+    date: "2026-05-12",
     readTime: "5 min",
     content: `A mentira é combustível da adicção. Cada "não bebi" quando bebeu, cada "foi só um", cada "não vai acontecer de novo" — tudo isso alimenta o ciclo.
 
@@ -163,7 +163,7 @@ Escolha uma pessoa. Mande uma mensagem simples: "Hoje não vou beber. Se eu sumi
     title: "Os gatilhos invisíveis: Fome, cansaço e isolamento",
     summary: "Nem todo gatilho é uma garrafa na mesa. Os piores são os que você não vê chegando.",
     category: "gatilhos",
-    date: "2024-01-05",
+    date: "2026-05-05",
     readTime: "5 min",
     content: `Você sabe que bar é gatilho. Sabe que festa com álcool é gatilho. Mas os gatilhos mais perigosos são invisíveis: fome, cansaço, isolamento.
 
@@ -196,7 +196,7 @@ Se dois ou mais estão ativos, não é hora de decidir nada. É hora de comer, d
     title: "72 horas sem negociar com a fissura",
     summary: "As primeiras 72 horas são as mais brutais. O Protocolo Escudo existe para atravessar esse campo minado.",
     category: "vontade",
-    date: "2024-01-03",
+    date: "2026-04-28",
     readTime: "7 min",
     content: `As primeiras 72 horas depois de parar são o território mais perigoso. O corpo grita. A mente negocia. Tudo conspira para você ceder.
 
@@ -235,7 +235,7 @@ Das 20h até dormir, nada de novidade. Tudo previsível. Tudo seguro.`,
     title: "Família: Como colocar limites sem declarar guerra",
     summary: "Proteger a casa não é abandonar quem bebe. É escolher não afundar junto.",
     category: "familia",
-    date: "2024-01-01",
+    date: "2026-04-18",
     readTime: "6 min",
     content: `Amar alguém que bebe é andar em campo minado. Você quer ajudar, mas cada tentativa parece explodir na sua cara. A culpa pesa. A raiva também.
 
@@ -276,7 +276,7 @@ Seu papel não é curar. É proteger. Quem bebe precisa de ajuda profissional �
     title: "'Só hoje' é a armadilha mais antiga",
     summary: "O cérebro é mestre em vender a ideia de exceção. Reconheça o truque antes de cair.",
     category: "vontade",
-    date: "2023-12-28",
+    date: "2026-04-08",
     readTime: "4 min",
     content: `"Só hoje." "Só um." "Depois de amanhã eu paro." "Mereço relaxar." 
 
@@ -313,7 +313,7 @@ Não é força de vontade. É recusa de entrar na negociação.`,
     title: "A rotina mínima que segura os dias",
     summary: "Você não precisa de uma vida perfeita. Precisa de uma estrutura que aguente os dias ruins.",
     category: "rotina",
-    date: "2023-12-25",
+    date: "2026-03-28",
     readTime: "5 min",
     content: `Rotina não é prisão. É proteção. Nos dias em que a vontade apertar, você não precisa pensar — só executar o que já está decidido.
 
@@ -350,7 +350,7 @@ Escolha um pilar. Só um. Faça por uma semana. Depois, adicione o segundo. Perf
     title: "Depois do escorregão: O que fazer agora",
     summary: "Escorregou? O caminho não é se destruir de culpa. É voltar ao protocolo — agora.",
     category: "vontade",
-    date: "2023-12-22",
+    date: "2026-03-18",
     readTime: "5 min",
     content: `Você bebeu. Pode ter sido ontem, pode ter sido agora há pouco. A vergonha está pesando. A voz na cabeça diz que não adianta tentar de novo.
 
@@ -391,7 +391,7 @@ Cada vez que você volta depois de escorregar, a volta fica mais forte. Você es
     title: "Pedir reforço em 20 segundos",
     summary: "Você não precisa contar a história toda. Precisa de uma mensagem curta para a pessoa certa.",
     category: "honestidade",
-    date: "2023-12-20",
+    date: "2026-03-05",
     readTime: "4 min",
     content: `Pedir ajuda parece impossível quando você mais precisa. A vergonha trava. O orgulho atrapalha. A voz diz que ninguém vai entender.
 
@@ -428,7 +428,7 @@ Honestidade tática não é perfeição. É verdade necessária no momento certo
     title: "Não é força de vontade. É estratégia.",
     summary: "O mito da força de vontade destrói recuperações. O caminho é sistema, não heroísmo.",
     category: "rotina",
-    date: "2023-12-18",
+    date: "2026-02-20",
     readTime: "5 min",
     content: `"Se você quisesse de verdade, conseguia." Essa frase já destruiu mais recuperações do que qualquer garrafa.
 

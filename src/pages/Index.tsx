@@ -296,7 +296,7 @@ const Index = () => {
                   <div className="section-divider mb-5" />
                   <span className="text-xs font-mono text-muted-foreground/50 mb-3 block">{post.category ?? "Estratégia"}</span>
                   <h3 className="font-display text-lg text-foreground mb-3 leading-snug group-hover:text-primary/90 transition-colors">{post.title}</h3>
-                  <p className="text-sm text-muted-foreground line-clamp-2 mb-6">{post.excerpt}</p>
+                  <p className="text-sm text-muted-foreground line-clamp-2 mb-6">{post.summary}</p>
                   <div className="flex items-center gap-1 text-xs text-primary uppercase tracking-widest">
                     Ler despacho <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </div>

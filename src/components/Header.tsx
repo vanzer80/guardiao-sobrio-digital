@@ -10,6 +10,7 @@ const navItems = [
   { label: "Trilhas", href: "/trilhas" },
   { label: "Produtos", href: "/produtos" },
   { label: "Sobre", href: "/sobre" },
+  { label: "Contato", href: "/contato" },
 ];
 
 export const Header = () => {

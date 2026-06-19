@@ -29,7 +29,6 @@ export const NewsletterCapture = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    void tag;
     try {
       await new Promise<void>((resolve) => setTimeout(resolve, 900));
       setStatus("success");
